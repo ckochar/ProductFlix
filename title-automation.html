@@ -74,7 +74,7 @@
       <article class="manual-card"><span class="num">02</span><h3>Manual Keying</h3><p>Relevant information from reports and documents had to be interpreted and entered into downstream systems.</p></article>
       <article class="manual-card"><span class="num">03</span><h3>Manual Assembly</h3><p>Documents, data and production outputs were combined into the final package through multiple repetitive steps.</p></article>
       <article class="manual-card"><span class="num">04</span><h3>Fragmented Exceptions</h3><p>When data was missing or ambiguous, work depended on individual judgment rather than a consistent exception model.</p></article>
-      <article class="manual-card"><span class="num">05</span><h3>Different LOB Rules</h3><p>Multiple business workflows shared a core problem but differed in rules, source requirements and downstream needs.</p></article>
+      <article class="manual-card"><span class="num">05</span><h3>Workflow Variation</h3><p>Multiple business workflows shared a core problem but differed in rules, source requirements and downstream needs.</p></article>
       <article class="manual-card"><span class="num">06</span><h3>Hard-to-Scale Labor</h3><p>Growth meant adding operational capacity unless the workflow itself changed.</p></article>
     </div>
   </section>
@@ -87,14 +87,14 @@
       <article class="strategy-card"><h3>2. Integrate at the source</h3><p>Approved external data sources become part of the workflow rather than destinations users manually visit.</p></article>
       <article class="strategy-card"><h3>3. Remove keying</h3><p>Extract structured data from retrieved documents and source outputs, validate it, and write it downstream automatically.</p></article>
       <article class="strategy-card"><h3>4. Assemble automatically</h3><p>Retrieve the required evidence and documents, apply package rules, and build the production output without repetitive operator work.</p></article>
-      <article class="strategy-card"><h3>5. Design exceptions first</h3><p>Ambiguity, missing data and provider failures route to a human queue with context instead of breaking the automated flow.</p></article>
+      <article class="strategy-card"><h3>5. Design exceptions first</h3><p>Ambiguity, missing data and source failures route to a human queue with context instead of breaking the automated flow.</p></article>
       <article class="strategy-card"><h3>6. Preserve control</h3><p>Automation needs source traceability, confidence, auditability and human override because the output supports regulated workflows.</p></article>
     </div>
   </section>
 
   <section class="case-section reveal" id="experience">
     <div class="section-label">03 · THE PRODUCT BLUEPRINT</div>
-    <div class="split-heading"><h2>One orchestration layer.<br><em>Many providers, rules and outputs.</em></h2><p>A conceptual view of the platform experience: automate the happy path, make the system observable, and create a focused workbench for the exceptions.</p></div>
+    <div class="split-heading"><h2>One orchestration layer.<br><em>Many sources, rules and outputs.</em></h2><p>A conceptual view of the platform experience: automate the happy path, make the system observable, and create a focused workbench for the exceptions.</p></div>
     <div class="blueprint">
       <div class="blueprint-panel">
         <h3>Automated production run</h3>
@@ -124,12 +124,12 @@
     <div class="section-label">04 · KEY PRODUCT DECISIONS</div>
     <div class="split-heading"><h2>The hard part wasn’t OCR.<br><em>It was designing the operating model around automation.</em></h2><p>The product choices determine whether automation becomes a scalable platform or a brittle collection of scripts.</p></div>
     <div class="decision-grid">
-      <article class="decision-card"><h3>Shared platform vs. eight bespoke automations</h3><p>Build reusable orchestration and configuration primitives, then express LOB variation as rules and profiles.</p></article>
+      <article class="decision-card"><h3>Shared platform vs. bespoke automations</h3><p>Build reusable orchestration and configuration primitives, then express LOB variation as rules and profiles.</p></article>
       <article class="decision-card"><h3>Rules vs. AI</h3><p>Use deterministic logic where the answer is knowable; use extraction/intelligence for unstructured content; never ask a model to solve what a rule can settle.</p></article>
       <article class="decision-card"><h3>Happy path vs. exception path</h3><p>Success is not “100% touchless.” Success is maximizing safe straight-through processing while making exceptions faster to resolve.</p></article>
       <article class="decision-card"><h3>Source abstraction</h3><p>Keep downstream workflows from being tightly coupled to one external source so sources can evolve without redesigning the product.</p></article>
       <article class="decision-card"><h3>Source traceability</h3><p>Every automated field needs an explainable source so reviewers can verify why the system populated it.</p></article>
-      <article class="decision-card"><h3>Scale through observability</h3><p>Track where automation succeeds, where it falls out, why it falls out, and which rules/providers drive operational load.</p></article>
+      <article class="decision-card"><h3>Scale through observability</h3><p>Track where automation succeeds, where it falls out, why it falls out, and which rules or sources drive operational load.</p></article>
     </div>
   </section>
 
