@@ -1,0 +1,28 @@
+name: Featured work poster polish
+
+on:
+  push:
+    branches:
+      - poster-polish
+    paths:
+      - '.github/workflows/poster-polish.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: poster-polish
+      - name: Apply poster and recruiter polish
+        run: python .github/scripts/apply-poster-polish.py
+      - name: Commit polished site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html app.js styles.css resume.html product-journey.html
+          git commit -m "Polish featured work posters and recruiter hero" || exit 0
+          git push origin HEAD:poster-polish
