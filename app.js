@@ -216,7 +216,12 @@ function applyMode(mode,{updateUrl=true,animate=true}={}){
   if(updateUrl){const url=new URL(window.location.href);if(mode==="hiring")url.searchParams.delete("mode");else url.searchParams.set("mode",mode);history.replaceState({mode},"",url);try{localStorage.setItem("productflix-mode",mode)}catch(_){}}
 }
 modeTabs.forEach(tab=>tab.addEventListener("click",()=>{applyMode(tab.dataset.mode);window.scrollTo({top:0,behavior:"smooth"});}));
-const params=new URLSearchParams(window.location.search);const requestedMode=params.get("mode");let initialMode=modeConfig[requestedMode]?requestedMode:"hiring";if(!requestedMode){try{const saved=localStorage.getItem("productflix-mode");if(saved&&modeConfig[saved])initialMode=saved}catch(_){}}applyMode(initialMode,{updateUrl:false,animate:false});
+const params=new URLSearchParams(window.location.search);
+const requestedMode=params.get("mode");
+// URL intent always wins. A bare homepage always starts in the Hiring cut,
+// regardless of what this browser selected on a previous visit.
+const initialMode=modeConfig[requestedMode]?requestedMode:"hiring";
+applyMode(initialMode,{updateUrl:false,animate:false});
 
 document.querySelectorAll("[data-scroll-row]").forEach(button => {
   button.addEventListener("click", () => {
