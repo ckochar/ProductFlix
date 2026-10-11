@@ -1,0 +1,48 @@
+name: Fix homepage polish
+
+on:
+  push:
+    paths:
+      - 'fix-homepage-polish.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch homepage interactions and journey card
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          index = Path('index.html')
+          s = index.read_text()
+          s = s.replace(
+              '<button class="button button-secondary" data-open="title-automation"><span class="info">i</span> More Info</button>',
+              '<a class="button button-secondary" href="title-automation.html#problem"><span class="info">i</span> More Info</a>'
+          )
+          index.write_text(s)
+
+          css = Path('styles.css')
+          s = css.read_text()
+          s = s.replace(
+              '.career-bands{position:absolute;inset:0;display:grid;',
+              '.career-bands{position:absolute;inset:0 0 36px;display:grid;'
+          )
+          if '/* Final homepage polish */' not in s:
+              s += '''\n/* Final homepage polish */\n.career-journey .wide-copy{bottom:58px;max-width:68%}\n.career-journey .career-bands span{padding-bottom:14px}\n@media(max-width:650px){.career-journey .wide-copy{bottom:58px;max-width:72%}}\n'''
+          css.write_text(s)
+          PY
+          rm -f fix-homepage-polish.trigger
+      - name: Commit fixes
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html styles.css fix-homepage-polish.trigger
+          git commit -m 'Fix title CTAs and journey card overlap'
+          git push
