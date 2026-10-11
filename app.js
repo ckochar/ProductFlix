@@ -47,10 +47,10 @@ const projects = {
   "accounting-payments": {
     title: "Accounting & Vendor Payments",
     meta: "Financial Infrastructure · Enterprise · Shipped",
-    summary: "Accounting, reconciliation and vendor-payment workflows supporting high-value disbursements across multiple lines of business.",
-    metrics: [["$180M+", "annual disbursements"], ["−30%", "reconciliation effort"], ["−23%", "payment cycle"]],
+    summary: "Accounting, reconciliation and vendor-payment workflows supporting high-value enterprise financial operations.",
+    metrics: [["$180M+", "annual transaction scale"], ["−30%", "reconciliation effort · realized"], ["−23%", "payment cycle · realized"]],
     problem: "High-volume disbursements created reconciliation friction, payment failures, vendor-cycle delays and revenue leakage across distributed operational workflows.",
-    role: "Platform product leadership spanning accounting flows, reconciliation, payment operations, provider workflows, controls and measurable operational outcomes.",
+    role: "Platform product leadership spanning accounting flows, reconciliation, payment operations, controls and measurable operational outcomes.",
     accent: "gold"
   },
   "assay": {
