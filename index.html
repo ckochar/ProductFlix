@@ -39,19 +39,19 @@
   </header>
 
   <main>
-    <section class="hero hero-title-feature" aria-labelledby="hero-title">
+    <section class="hero hero-title-feature mode-hero" id="modeHero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <div class="eyebrow"><span>★</span> PRODUCTFLIX FEATURED</div>
-        <h1 id="hero-title"><span>TITLE WORKFLOW</span> AUTOMATION</h1>
-        <p class="hero-description">Turning fragmented search, document and data workflows into an exception-driven automation platform with configurable rules, external integrations, document intelligence and human review.</p>
-        <div class="hero-metrics" aria-label="Project highlights">
-          <span>0→1 platform</span><i></i><span>Workflow automation</span><i></i><span>AI extraction + human review</span>
+        <div class="eyebrow" id="heroEyebrow"><span>★</span> HIRING CUT</div>
+        <h1 id="hero-title"><span>CHIRAG</span> KOCHAR</h1>
+        <p class="hero-description" id="heroDescription">Senior Product Manager building AI-enabled enterprise products, financial platforms and workflow automation.</p>
+        <div class="hero-metrics" id="heroMetrics" aria-label="Highlights">
+          <span>$180M+ transaction scale</span><i></i><span>8.5+ years</span><i></i><span>Enterprise → AI</span>
         </div>
         <div class="hero-actions">
-          <a class="button button-primary" href="title-automation.html"><span class="play">▶</span> Explore Case Study</a>
-          <a class="button button-secondary" href="title-automation.html#problem"><span class="info">i</span> More Info</a>
+          <a class="button button-primary" id="heroPrimary" href="#work"><span class="play">▶</span> View Featured Work</a>
+          <a class="button button-secondary" id="heroSecondary" href="product-journey.html"><span class="info">i</span> My Journey</a>
         </div>
-        <div class="hero-meta">2026 <span>•</span> Enterprise Automation <span>•</span> In Build</div>
+        <div class="hero-meta" id="heroMeta">Senior Product Manager <span>•</span> AI · Platforms · Payments <span>•</span> Plano, TX</div>
       </div>
 
       <div class="hero-art title-hero-art" aria-label="Illustration of an automated title production workflow">
@@ -67,40 +67,17 @@
       </div>
     </section>
 
-    <section class="section visitor-section" id="discover">
-      <div class="section-heading compact">
-        <div>
-          <h2>What are you here for?</h2>
-          <p id="modeDescription">Shape Productflix around what you want to explore.</p>
+    <section class="mode-bar" id="discover" aria-label="Portfolio viewing mode">
+      <div class="mode-bar-inner">
+        <div class="mode-bar-label"><span>Viewing as</span><strong id="activeModeLabel">Hiring Chirag</strong></div>
+        <div class="mode-tabs" role="tablist" aria-label="Choose a portfolio cut">
+          <button class="mode-tab is-active" data-mode="hiring" role="tab" aria-selected="true">Hiring Chirag</button>
+          <button class="mode-tab" data-mode="ai" role="tab" aria-selected="false">Product × AI</button>
+          <button class="mode-tab" data-mode="building" role="tab" aria-selected="false">Building</button>
+          <button class="mode-tab" data-mode="life" role="tab" aria-selected="false">Life</button>
+          <button class="mode-tab mode-tab-muted" data-mode="explore" role="tab" aria-selected="false">Just Explore</button>
         </div>
-        <button class="text-button" id="surpriseMe">✦ Surprise Me</button>
-      </div>
-
-      <div class="visitor-grid" role="list" aria-label="Choose a portfolio viewing mode">
-        <button class="visitor-card is-active" data-mode="recruiter" role="listitem">
-          <div class="visitor-icon">▣</div>
-          <div class="visitor-copy"><strong>Hiring Chirag</strong><span>Products, outcomes, leadership and career story</span></div>
-          <div class="visitor-visual visual-city"></div>
-          <div class="mini-arrow">→</div>
-        </button>
-        <button class="visitor-card" data-mode="product" role="listitem">
-          <div class="visitor-icon">◉</div>
-          <div class="visitor-copy"><strong>Product & AI</strong><span>Case studies, product decisions and AI thinking</span></div>
-          <div class="visitor-visual visual-ai"></div>
-          <div class="mini-arrow">→</div>
-        </button>
-        <button class="visitor-card" data-mode="builder" role="listitem">
-          <div class="visitor-icon">⌁</div>
-          <div class="visitor-copy"><strong>Building Stuff</strong><span>Side projects, prototypes and experiments</span></div>
-          <div class="visitor-visual visual-build"></div>
-          <div class="mini-arrow">→</div>
-        </button>
-        <button class="visitor-card" data-mode="life" role="listitem">
-          <div class="visitor-icon">◒</div>
-          <div class="visitor-copy"><strong>Beyond Work</strong><span>Travel, photography, sports, food and life</span></div>
-          <div class="visitor-visual visual-life"></div>
-          <div class="mini-arrow">→</div>
-        </button>
+        <p class="mode-bar-copy" id="modeDescription">Work, impact and career — the recruiter cut.</p>
       </div>
     </section>
 
@@ -196,7 +173,7 @@
 </div>
       </section>
 
-      <section class="section receipts-section" id="receipts">
+      <section class="section receipts-section" id="receipts" data-shelf="receipts">
         <div class="section-heading">
           <div><span class="section-kicker">Credibility layer</span><h2>The Receipts</h2></div>
           <span class="section-note">Awards, credentials and the occasional proof point.</span>
@@ -291,7 +268,7 @@
       </section>
 
 
-      <section class="section about-section" id="about">
+      <section class="section about-section" id="about" data-shelf="about">
         <div class="about-shell about-shell-media">
           <div class="about-photo"><img src="assets/photos/navy-blazer.jpg" alt="Chirag Kochar"></div>
           <div>

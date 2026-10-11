@@ -182,40 +182,41 @@ const projects = {
 };
 
 const shelfOrderByMode = {
-  recruiter: ["work", "metrics", "think", "build", "life"],
-  product: ["think", "work", "build", "metrics", "life"],
-  builder: ["build", "think", "work", "metrics", "life"],
-  life: ["life", "think", "work", "build", "metrics"]
+  hiring: ["work", "metrics", "career", "think", "build", "receipts", "life", "about"],
+  ai: ["work", "think", "build", "career", "metrics", "receipts", "life", "about"],
+  building: ["build", "think", "work", "career", "life", "receipts", "metrics", "about"],
+  life: ["life", "work", "career", "think", "receipts", "build", "metrics", "about"],
+  explore: ["work", "think", "build", "career", "metrics", "life", "receipts", "about"]
 };
-const modeCopy = {
-  recruiter: "Prioritizing shipped products, outcomes, career story and credibility.",
-  product: "Prioritizing product decisions, AI work and how I think.",
-  builder: "Prioritizing prototypes, experiments and things under construction.",
-  life: "Prioritizing photography, travel, sport and the human side."
+const modeConfig = {
+  hiring: { label:"Hiring Chirag", description:"Work, impact and career — the recruiter cut.", eyebrow:"★ HIRING CUT", title:"<span>CHIRAG</span> KOCHAR", hero:"Senior Product Manager building AI-enabled enterprise products, financial platforms and workflow automation.", metrics:["$180M+ transaction scale","8.5+ years","Enterprise → AI"], primary:["▶ View Featured Work","#work"], secondary:["i My Journey","product-journey.html"], meta:"Senior Product Manager • AI · Platforms · Payments • Plano, TX", headings:{work:"Featured Work",metrics:"Impact & Scale",career:"How I Got Here",think:"How I Think",build:"Built, Not Just Managed",life:"Beyond Product"}, workOrder:["accounting-payments","doc-verify","title-automation","assay","payments-checkout","client-platform"], thinkOrder:["decision-simulator","if-i-were-pm","product-teardowns","ai-product-copilot"] },
+  ai: { label:"Product × AI", description:"AI products, product judgment and how I design for trust.", eyebrow:"✦ PRODUCT × AI", title:"<span>RULES × AI</span> × HUMAN", hero:"AI becomes useful when it understands where certainty ends and judgment begins. I design AI-assisted workflows around deterministic rules, model interpretation, human review and evidence.", metrics:["Rules-first","AI-assisted interpretation","Human-in-the-loop"], primary:["▶ Explore AI Work","#work"], secondary:["✦ Try Product Thinking","#think"], meta:"Document Intelligence • Workflow Automation • Evidence & Auditability", headings:{work:"AI Products",metrics:"Impact & Scale",career:"My Journey to AI",think:"Try My Product Thinking",build:"AI Experiments",life:"Beyond Product"}, workOrder:["doc-verify","title-automation","assay","accounting-payments","client-platform","payments-checkout"], thinkOrder:["decision-simulator","ai-product-copilot","if-i-were-pm","product-teardowns"] },
+  building: { label:"Building", description:"Prototypes, experiments and ideas turned into working experiences.", eyebrow:"⌁ BUILDING", title:"<span>MAKE IT.</span> TEST IT.", hero:"Sometimes the fastest way to understand a product idea is to make something. This cut prioritizes prototypes, interactive experiments and hands-on product work.", metrics:["Concept → prototype","Interactive experiments","Build to learn"], primary:["▶ See What I Built","#build"], secondary:["i View Assay","assay.html"], meta:"Prototypes • Experiments • Side Projects • Product Judgment", headings:{work:"Professional Products",metrics:"Impact & Scale",career:"The Experience Behind the Builds",think:"Interactive Experiments",build:"Things I Built",life:"Life Outside the Lab"}, workOrder:["assay","doc-verify","title-automation","accounting-payments","client-platform","payments-checkout"], thinkOrder:["ai-product-copilot","decision-simulator","if-i-were-pm","product-teardowns"] },
+  life: { label:"Life", description:"Photography, travel, sport, food and the human side.", eyebrow:"◒ LIFE", title:"<span>BEYOND</span> THE ROADMAP", hero:"Products are what I build. Travel, photography, sport, food and style are what keep the rest of the story interesting.", metrics:["Photography","Travel","Sport · Food · Style"], primary:["▶ Through My Lens","through-my-lens.html"], secondary:["i Passport Mode","passport-mode.html"], meta:"Photography • Travel • Sports • Food • Style", headings:{work:"Back to the Day Job",metrics:"Impact & Scale",career:"How I Got Here",think:"How I Think",build:"Things I Build",life:"Life, Apparently"}, workOrder:["accounting-payments","doc-verify","title-automation","assay","payments-checkout","client-platform"], thinkOrder:["product-teardowns","if-i-were-pm","decision-simulator","ai-product-copilot"] },
+  explore: { label:"Just Explore", description:"The director’s cut — everything in editorial order.", eyebrow:"★ PRODUCTFLIX", title:"<span>PRODUCTS.</span> EXPERIMENTS. STORIES. LIFE.", hero:"A portfolio built like a catalog: enterprise products, AI experiments, product thinking and the life around all of it.", metrics:["Work","Think · Build","Life"], primary:["▶ Start Exploring","#work"], secondary:["✦ Product Thinking","#think"], meta:"One catalog • Multiple stories • Pick your path", headings:{work:"Featured Work",metrics:"Impact & Scale",career:"Across Industries",think:"How I Think",build:"CK Labs",life:"Beyond Product"}, workOrder:["doc-verify","title-automation","accounting-payments","assay","payments-checkout","client-platform"], thinkOrder:["decision-simulator","ai-product-copilot","if-i-were-pm","product-teardowns"] }
 };
-
 const shelfContainer = document.getElementById("shelfContainer");
 const shelfSections = [...document.querySelectorAll("[data-shelf]")];
-const visitorCards = [...document.querySelectorAll(".visitor-card")];
-
-visitorCards.forEach(card => {
-  card.addEventListener("click", () => {
-    visitorCards.forEach(c => c.classList.toggle("is-active", c === card));
-    const mode = card.dataset.mode;
-    document.getElementById("modeDescription").textContent = modeCopy[mode];
-    const anchor = shelfContainer.querySelector(".final-cta");
-    shelfOrderByMode[mode].forEach(key => {
-      const section = shelfSections.find(s => s.dataset.shelf === key);
-      if (section) shelfContainer.insertBefore(section, anchor);
-    });
-    shelfSections.forEach((section, i) => {
-      section.animate([
-        { opacity: .25, transform: "translateY(10px)" },
-        { opacity: 1, transform: "translateY(0)" }
-      ], { duration: 350 + i * 55, easing: "cubic-bezier(.2,.8,.2,1)" });
-    });
-  });
-});
+const modeTabs = [...document.querySelectorAll(".mode-tab")];
+const workRow = document.getElementById("workRow");
+const thinkRow = document.getElementById("thinkRow");
+function reorderRow(row, ids){ if(!row)return; ids.forEach(id=>{const card=row.querySelector('[data-id="'+id+'"]'); if(card)row.appendChild(card);}); }
+function setShelfHeading(key,text){ const section=shelfSections.find(s=>s.dataset.shelf===key); const heading=section?.querySelector(".section-heading h2"); if(heading&&text)heading.textContent=text; }
+function applyMode(mode,{updateUrl=true,animate=true}={}){
+  if(!modeConfig[mode])mode="hiring"; const config=modeConfig[mode]; document.body.dataset.mode=mode;
+  modeTabs.forEach(tab=>{const active=tab.dataset.mode===mode;tab.classList.toggle("is-active",active);tab.setAttribute("aria-selected",active?"true":"false");});
+  document.getElementById("activeModeLabel").textContent=config.label; document.getElementById("modeDescription").textContent=config.description;
+  const icon=mode==="ai"?"✦":mode==="building"?"⌁":mode==="life"?"◒":"★"; document.getElementById("heroEyebrow").innerHTML='<span>'+icon+'</span> '+config.eyebrow.replace(/^[★✦⌁◒]\s*/,"");
+  document.getElementById("hero-title").innerHTML=config.title; document.getElementById("heroDescription").textContent=config.hero;
+  document.getElementById("heroMetrics").innerHTML=config.metrics.map((m,i)=>(i?"<i></i>":"")+"<span>"+m+"</span>").join("");
+  const primary=document.getElementById("heroPrimary"),secondary=document.getElementById("heroSecondary"); primary.innerHTML=config.primary[0];primary.href=config.primary[1];secondary.innerHTML=config.secondary[0];secondary.href=config.secondary[1];document.getElementById("heroMeta").textContent=config.meta;
+  Object.entries(config.headings).forEach(([key,text])=>setShelfHeading(key,text)); reorderRow(workRow,config.workOrder); reorderRow(thinkRow,config.thinkOrder);
+  const anchor=shelfContainer.querySelector(".final-cta"); shelfOrderByMode[mode].forEach(key=>{const section=shelfSections.find(s=>s.dataset.shelf===key);if(section)shelfContainer.insertBefore(section,anchor);});
+  if(animate){document.getElementById("modeHero").animate([{opacity:.72},{opacity:1}],{duration:280,easing:"ease-out"});shelfSections.slice(0,4).forEach((section,i)=>section.animate([{opacity:.35,transform:"translateY(8px)"},{opacity:1,transform:"translateY(0)"}],{duration:260+i*45,easing:"cubic-bezier(.2,.8,.2,1)"}));}
+  if(updateUrl){const url=new URL(window.location.href);if(mode==="hiring")url.searchParams.delete("mode");else url.searchParams.set("mode",mode);history.replaceState({mode},"",url);try{localStorage.setItem("productflix-mode",mode)}catch(_){}}
+}
+modeTabs.forEach(tab=>tab.addEventListener("click",()=>{applyMode(tab.dataset.mode);window.scrollTo({top:0,behavior:"smooth"});}));
+const params=new URLSearchParams(window.location.search);const requestedMode=params.get("mode");let initialMode=modeConfig[requestedMode]?requestedMode:"hiring";if(!requestedMode){try{const saved=localStorage.getItem("productflix-mode");if(saved&&modeConfig[saved])initialMode=saved}catch(_){}}applyMode(initialMode,{updateUrl:false,animate:false});
 
 document.querySelectorAll("[data-scroll-row]").forEach(button => {
   button.addEventListener("click", () => {
@@ -328,11 +329,6 @@ document.getElementById("modalPrimary").addEventListener("click",()=>{
   if (!existing) document.getElementById("modalSummary").insertAdjacentHTML("afterend","<p class='modal-summary modal-coming-soon' style='color:#f2c66d'>This concept is still in the lab. Browse the live case studies and interactive experiences for the finished work.</p>");
 });
 
-document.getElementById("surpriseMe").addEventListener("click",()=>{
-  const liveIds = ["title-automation","doc-verify","accounting-payments","assay","decision-simulator","ai-product-copilot","if-i-were-pm","product-teardowns","product-journey","reservation-system","digital-manufacturing","through-my-lens","passport-mode","game-on","worth-calories","in-front-lens"];
-  openModal(liveIds[Math.floor(Math.random()*liveIds.length)]);
-});
-
 const searchOverlay=document.getElementById("searchOverlay");
 const searchInput=document.getElementById("searchInput");
 const searchResults=document.getElementById("searchResults");
@@ -340,7 +336,7 @@ function openSearch(){searchOverlay.hidden=false;document.body.classList.add("bo
 function closeSearch(){if(!searchOverlay.hidden){searchOverlay.hidden=true;document.body.classList.remove("body-locked");}}
 document.getElementById("searchButton").addEventListener("click",openSearch);
 document.getElementById("searchClose").addEventListener("click",closeSearch);
-document.getElementById("profileButton").addEventListener("click",()=>document.querySelector(".visitor-section").scrollIntoView({behavior:"smooth",block:"start"}));
+document.getElementById("profileButton").addEventListener("click",()=>document.querySelector(".mode-bar").scrollIntoView({behavior:"smooth",block:"start"}));
 function renderResults(query){
   const q=query.toLowerCase().trim();
   const entries=Object.entries(projects).filter(([id,p])=>!q||`${id} ${p.title} ${p.meta} ${p.summary}`.toLowerCase().includes(q)).slice(0,9);
