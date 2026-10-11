@@ -3,7 +3,7 @@ const projects = {
     title: "My Product Journey",
     meta: "Career Story · Systems → AI",
     summary: "A visual story of how implementation, operations, transactions and enterprise platforms shaped the way I build AI products today.",
-    metrics: [["9 yrs", "career arc"], ["4", "industry chapters"], ["Systems → AI", "through-line"]],
+    metrics: [["8.5+ yrs", "career arc"], ["4", "industry chapters"], ["Systems → AI", "through-line"]],
     problem: "A chronological resume shows where I worked. It does not explain how each chapter changed the way I think about products.",
     role: "The connective tissue across my career: systems thinking, transactions, platform design and intelligent automation.",
     accent: "gold"
@@ -27,21 +27,21 @@ const projects = {
     accent: "blue"
   },
   "doc-verify": {
-    title: "Doc Verify",
-    meta: "2026 · Enterprise AI · Mortgage · In Production",
-    summary: "AI-assisted document intelligence that combines deterministic rules, OCR/LLM interpretation and human review to reduce repetitive mortgage document QC.",
-    metrics: [["79K+", "packages/year"], ["4.4 FTE", "capacity unlocked"], ["$184K", "annual gross impact"]],
-    problem: "Manual QC required repetitive reviews of high-volume document packages, with common failures concentrated in signatures, notary execution and date validation.",
-    role: "0→1 product lead across discovery, business case, workflow design, governance, rollout sequencing and cross-functional execution.",
+    title: "Document Verification",
+    meta: "2026 · Enterprise AI · Regulated Operations · In Production",
+    summary: "AI-assisted verification that combines deterministic rules, document intelligence and human review to reduce repetitive manual QC in a regulated workflow.",
+    metrics: [["Rules-first", "deterministic checks"], ["AI-assisted", "interpretation"], ["Human review", "exceptions"]],
+    problem: "High-volume verification required people to repeatedly locate evidence before making decisions, even when many conditions could be handled more systematically.",
+    role: "Product lead across discovery, workflow design, governance, human-in-the-loop controls and cross-functional execution.",
     accent: "gold"
   },
   "title-automation": {
-    title: "Title Automation",
-    meta: "2026 · Enterprise Automation · 8 LOBs",
-    summary: "A configurable title-search and production workflow using provider integrations, automated retrieval, data extraction, exception routing and human review.",
-    metrics: [["8", "lines of business"], ["$1.5M", "projected annual savings"], ["0→1", "platform build"]],
-    problem: "Title production relied on fragmented provider workflows, manual search, document retrieval, data keying and package assembly.",
-    role: "Product strategy, workflow architecture, provider/integration design, automation roadmap, exception model and business-case ownership.",
+    title: "Title Workflow Automation",
+    meta: "2026 · Enterprise Automation · In Build",
+    summary: "A configurable workflow platform connecting external data sources, automated retrieval, structured extraction, exception routing and human review.",
+    metrics: [["0→1", "platform"], ["Rules + AI", "orchestration"], ["Human review", "exceptions"]],
+    problem: "A fragmented production workflow relied on repeated search, document retrieval, data interpretation and manual handoffs.",
+    role: "Product strategy, workflow architecture, integration design, automation roadmap and exception-model ownership.",
     accent: "blue"
   },
   "accounting-payments": {
