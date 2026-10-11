@@ -96,10 +96,10 @@
 
         <div class="mode-visual mode-visual-explore" aria-hidden="true">
           <div class="explore-grid">
-            <div class="explore-tile explore-work"><span>WORK</span><strong>Products</strong></div>
-            <div class="explore-tile explore-think"><span>THINK</span><strong>Decisions</strong></div>
-            <div class="explore-tile explore-build"><span>BUILD</span><strong>Experiments</strong></div>
-            <div class="explore-tile explore-life" style="--explore-image:url('assets/photos/boats-sunset-leaves.jpg')"><span>LIFE</span><strong>Stories</strong></div>
+            <div class="explore-tile explore-work"><div class="explore-viz explore-viz-work"><i></i><i></i><i></i><b></b></div><span>WORK</span><strong>Products</strong><small>Shipped systems & impact</small></div>
+            <div class="explore-tile explore-think"><div class="explore-viz explore-viz-think"><i></i><i></i><i></i><b></b></div><span>THINK</span><strong>Decisions</strong><small>Trade-offs & product judgment</small></div>
+            <div class="explore-tile explore-build"><div class="explore-viz explore-viz-build"><i></i><i></i><i></i><b></b></div><span>BUILD</span><strong>Experiments</strong><small>Prototypes & live ideas</small></div>
+            <div class="explore-tile explore-life" style="--explore-image:url('assets/photos/boats-sunset-leaves.jpg')"><div class="explore-life-shade"></div><span>LIFE</span><strong>Stories</strong><small>Travel, photography & everything else</small></div>
           </div>
           <div class="explore-center">PRODUCT<span>FLIX</span></div>
         </div>
@@ -108,7 +108,7 @@
 
     <section class="mode-bar" id="discover" aria-label="Portfolio viewing mode">
       <div class="mode-bar-inner">
-        <div class="mode-bar-label"><span>Viewing as</span><strong id="activeModeLabel">Hiring Chirag</strong></div>
+        <div class="mode-bar-label"><span>Viewing as:</span><strong id="activeModeLabel" class="sr-mode-label">Hiring Chirag</strong></div>
         <div class="mode-tabs" role="tablist" aria-label="Choose a portfolio cut">
           <button class="mode-tab is-active" data-mode="hiring" role="tab" aria-selected="true">Hiring Chirag</button>
           <button class="mode-tab" data-mode="ai" role="tab" aria-selected="false">Product × AI</button>
