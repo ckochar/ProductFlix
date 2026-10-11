@@ -12,7 +12,7 @@ const projects = {
     title: "Reservation System — Travel & Hospitality",
     meta: "Publicis Sapient · Travel · Transaction Platform",
     summary: "Reservation and transaction workflows for a large travel platform, connecting booking journeys, checkout, payments and reliability.",
-    metrics: [["Travel", "platform"], ["26K", "users"], ["Checkout", "& payments"]],
+    metrics: [["$4.2M", "incremental bookings"], ["40%→24%", "checkout abandonment"], ["Payments", "& checkout"]],
     problem: "Reservation experiences break when availability, checkout, payment and operational states fall out of sync.",
     role: "Product management across transaction journeys, integrations, payment reliability and traveler experience.",
     accent: "blue"
@@ -55,7 +55,7 @@ const projects = {
   },
   "assay": {
     title: "Assay",
-    meta: "Personal Build · AI · 0→1",
+    meta: "Personal Build · AI · Live Prototype",
     summary: "An AI-assisted post-execution document QC product for mortgage and regulated lending operations, built as a hands-on product portfolio project.",
     metrics: [["1–2 min", "target review"], ["AI + rules", "hybrid validation"], ["HITL", "governance"]],
     problem: "Regulated document packages are expensive to review manually, but full automation introduces accuracy and governance risks.",
@@ -66,7 +66,7 @@ const projects = {
     title: "Payments & Checkout",
     meta: "Fintech · Consumer · Shipped",
     summary: "Checkout and payment reliability improvements for a large travel platform, focused on authorization, failure reduction and transaction experience.",
-    metrics: [["26K", "users"], ["Payments", "platform"], ["Conversion", "focus"]],
+    metrics: [["$4.2M", "incremental bookings · realized"], ["40%→24%", "checkout abandonment · realized"], ["Payments", "& checkout"]],
     problem: "Payment failures and transaction friction were directly affecting conversion, support load and traveler trust.",
     role: "Product management across payment flows, integrations, reliability and checkout experience.",
     accent: "blue"
