@@ -1,0 +1,24 @@
+name: Run mode hero visual patch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/run-mode-hero-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply hero visual patch
+        run: python .github/scripts/mode_hero_patch.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css
+          git commit -m "Add distinct hero visuals by portfolio mode" || exit 0
+          git push
