@@ -1,0 +1,37 @@
+name: Expand ProductFlix source
+
+on:
+  push:
+    paths:
+      - 'archive/READY'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message != 'Expand ProductFlix source'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Rebuild source archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f archive/READY
+          cat archive/part-* | base64 -d > productflix-source.tar.gz
+          mkdir -p .unpack
+          tar -xzf productflix-source.tar.gz -C .unpack
+          cp -a .unpack/. .
+          rm -rf archive .unpack productflix-source.tar.gz
+      - name: Commit expanded site
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Expand ProductFlix source'
+          git push
