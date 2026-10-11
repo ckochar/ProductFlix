@@ -1,0 +1,24 @@
+name: Hero and catalog polish
+
+on:
+  push:
+    paths:
+      - '.github/workflows/hero-catalog-polish.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply homepage polish
+        run: python .github/scripts/hero_catalog_polish.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css
+          git commit -m "Polish mode hero and catalog previews" || exit 0
+          git push
