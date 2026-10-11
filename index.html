@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b0e" />
+  <title>Productflix — Chirag Kochar</title>
+  <meta name="description" content="Productflix by Chirag Kochar — products, experiments, stories and life." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+
+  <header class="site-header" id="home">
+    <a class="brand" href="#home" aria-label="Productflix home">
+      <span class="brand-main">PRODUCT<span>FLIX</span></span>
+      <span class="brand-sub">by Chirag Kochar</span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <a class="nav-link is-active" href="#home">Home</a>
+      <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="#think">Think</a>
+      <a class="nav-link" href="#build">Build</a>
+      <a class="nav-link" href="#life">Life</a>
+      <a class="nav-link" href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button" id="searchButton" aria-label="Search Productflix" title="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+      </button>
+      <button class="avatar" id="profileButton" aria-label="Open visitor modes" title="Choose a viewing mode">CK</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-title-feature" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>★</span> PRODUCTFLIX FEATURED</div>
+        <h1 id="hero-title"><span>TITLE</span> AUTOMATION</h1>
+        <p class="hero-description">An intelligent title-search and production platform that connects external sources, automates search and data keying, assembles the package, and routes only exceptions to people.</p>
+        <div class="hero-metrics" aria-label="Project highlights">
+          <span>$1.5M projected annual savings</span><i></i><span>8 lines of business</span><i></i><span>Search + keying automation</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="title-automation.html"><span class="play">▶</span> Explore Case Study</a>
+          <button class="button button-secondary" data-open="title-automation"><span class="info">i</span> More Info</button>
+        </div>
+        <div class="hero-meta">2026 <span>•</span> Enterprise Automation <span>•</span> 8 LOBs <span>•</span> In Build</div>
+      </div>
+
+      <div class="hero-art title-hero-art" aria-label="Illustration of an automated title production workflow">
+        <div class="title-source-card source-a"><small>TITLE SOURCE</small><strong>Search executed</strong><span>✓</span></div>
+        <div class="title-source-card source-b"><small>DOCUMENT RETRIEVAL</small><strong>Evidence assembled</strong><span>✓</span></div>
+        <div class="title-source-card source-c"><small>DATA EXTRACTION</small><strong>Fields keyed automatically</strong><span>✓</span></div>
+        <div class="title-doc-main"><div class="document-kicker">TITLE REPORT</div><div class="document-sub">Automated production package</div><div class="fake-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="title-data-chip">Owner / Vesting ✓</div><div class="title-data-chip chip-right">Legal / Tax ✓</div></div>
+        <div class="analysis-panel title-analysis">
+          <div class="analysis-title">AUTOMATION RUN</div>
+          <ul><li><span>✓</span> Search strategy resolved</li><li><span>✓</span> Source queried</li><li><span>✓</span> Documents retrieved</li><li><span>✓</span> Structured data extracted</li></ul>
+          <div class="confidence"><strong>$1.5M</strong><span>Projected annual savings</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section visitor-section" id="discover">
+      <div class="section-heading compact">
+        <div>
+          <h2>What are you here for?</h2>
+          <p id="modeDescription">Shape Productflix around what you want to explore.</p>
+        </div>
+        <button class="text-button" id="surpriseMe">✦ Surprise Me</button>
+      </div>
+
+      <div class="visitor-grid" role="list" aria-label="Choose a portfolio viewing mode">
+        <button class="visitor-card is-active" data-mode="recruiter" role="listitem">
+          <div class="visitor-icon">▣</div>
+          <div class="visitor-copy"><strong>Hiring Chirag</strong><span>Products, outcomes, leadership and career story</span></div>
+          <div class="visitor-visual visual-city"></div>
+          <div class="mini-arrow">→</div>
+        </button>
+        <button class="visitor-card" data-mode="product" role="listitem">
+          <div class="visitor-icon">◉</div>
+          <div class="visitor-copy"><strong>Product & AI</strong><span>Case studies, product decisions and AI thinking</span></div>
+          <div class="visitor-visual visual-ai"></div>
+          <div class="mini-arrow">→</div>
+        </button>
+        <button class="visitor-card" data-mode="builder" role="listitem">
+          <div class="visitor-icon">⌁</div>
+          <div class="visitor-copy"><strong>Building Stuff</strong><span>Side projects, prototypes and experiments</span></div>
+          <div class="visitor-visual visual-build"></div>
+          <div class="mini-arrow">→</div>
+        </button>
+        <button class="visitor-card" data-mode="life" role="listitem">
+          <div class="visitor-icon">◒</div>
+          <div class="visitor-copy"><strong>Beyond Work</strong><span>Travel, photography, sports, food and life</span></div>
+          <div class="visitor-visual visual-life"></div>
+          <div class="mini-arrow">→</div>
+        </button>
+      </div>
+    </section>
+
+    <div id="shelfContainer">
+      <section class="section shelf-section" id="work" data-shelf="work">
+        <div class="section-heading">
+          <div><span class="section-kicker">Featured collection</span><h2>Featured Work</h2></div>
+          <button class="text-button" data-scroll-row="workRow">See all <span>→</span></button>
+        </div>
+        <div class="poster-row poster-row-tall" id="workRow">
+          <article class="poster poster-document" tabindex="0" data-id="doc-verify" data-search="doc verify ai mortgage document intelligence qc">
+            <div class="poster-art"><div class="poster-grid-lines"></div><div class="doc-chip chip-a">Signature ✓</div><div class="doc-chip chip-b">Notary ✓</div></div>
+            <div class="poster-overlay"></div>
+            <div class="poster-copy"><div class="poster-title"><span>DOC</span> VERIFY</div><span class="status status-gold">IN PRODUCTION</span></div>
+            <div class="poster-caption"><strong>Doc Verify</strong><span>AI document intelligence</span></div>
+          </article>
+
+          <article class="poster poster-title" tabindex="0" data-id="title-automation" data-search="title automation enterprise documents structured data ai">
+            <div class="poster-art"><div class="paper-cascade"><i></i><i></i><i></i><i></i></div><div class="data-list"><span>Deed</span><span>Title Report</span><span>Assignment</span><span>Tax Certificate</span></div></div>
+            <div class="poster-overlay"></div>
+            <div class="poster-copy"><div class="poster-title compact-title">TITLE WITHOUT<br>THE MANUAL WORK</div><span class="status status-gold">IN BUILD</span></div>
+            <div class="poster-caption"><strong>Title Automation</strong><span>From documents to structured data</span></div>
+          </article>
+
+          <article class="poster poster-money" tabindex="0" data-id="accounting-payments" data-search="accounting payments vendor disbursements 180m finance reconciliation">
+            <div class="poster-art"><div class="money-bars"><i></i><i></i><i></i><i></i><i></i></div><div class="trend-line"></div></div>
+            <div class="poster-overlay"></div>
+            <div class="poster-copy"><div class="poster-title money-title"><span>$180M</span><br>MOVES HERE</div><span class="status status-green">SHIPPED</span></div>
+            <div class="poster-caption"><strong>Accounting & Payments</strong><span>Real money. Real impact.</span></div>
+          </article>
+
+          <article class="poster poster-assay" tabindex="0" data-id="assay" data-search="assay ai qc mortgage documents side project">
+            <div class="poster-art"><div class="screen-card"><div class="screen-nav"></div><div class="screen-lines"><i></i><i></i><i></i><i></i></div></div><div class="scan-card"><span>Analysis</span><span>Field extraction</span><span>Anomaly detection</span><span>Confidence scoring</span></div></div>
+            <div class="poster-overlay"></div>
+            <div class="poster-copy"><div class="poster-title">ASSAY</div><span class="status status-green">LIVE BUILD</span></div>
+            <div class="poster-caption"><strong>Assay</strong><span>Smarter document QC</span></div>
+          </article>
+
+          <article class="poster poster-payments" tabindex="0" data-id="payments-checkout" data-search="payments checkout publicis fintech conversion authorization reliability">
+            <div class="poster-art"><div class="phone"><div class="phone-line"></div><div class="phone-card"></div><div class="phone-button"></div></div></div>
+            <div class="poster-overlay"></div>
+            <div class="poster-copy"><div class="poster-title compact-title">PAYMENTS<br>& CHECKOUT</div><span class="status status-green">SHIPPED</span></div>
+            <div class="poster-caption"><strong>Payments & Checkout</strong><span>Modern, reliable payments</span></div>
+          </article>
+
+          <article class="poster poster-platform" tabindex="0" data-id="client-platform" data-search="client platform enterprise mortgage workflow portal">
+            <div class="poster-art"><div class="dashboard"><div class="dash-sidebar"></div><div class="dash-main"><i></i><i></i><i></i></div></div></div>
+            <div class="poster-overlay"></div>
+            <div class="poster-copy"><div class="poster-title compact-title">CLIENT<br>PLATFORM</div><span class="status status-green">SHIPPED</span></div>
+            <div class="poster-caption"><strong>Client Platform</strong><span>End-to-end mortgage operations</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shelf-section metrics-section" data-shelf="metrics">
+        <div class="section-heading">
+          <div><span class="section-kicker">Impact library</span><h2>Products That Moved the Metric</h2></div>
+          <button class="text-button" data-scroll-row="metricRow">See all <span>→</span></button>
+        </div>
+        <div class="metric-row" id="metricRow">
+          <button class="metric-card" data-open="doc-verify"><span class="metric-icon">▤</span><div><strong>$184K <small>/ year</small></strong><span>AI document automation</span></div></button>
+          <button class="metric-card" data-open="accounting-payments"><span class="metric-icon">◫</span><div><strong>$480K</strong><span>Revenue leakage recovered</span></div></button>
+          <button class="metric-card" data-open="accounting-payments"><span class="metric-icon">↘</span><div><strong>−30%</strong><span>Reconciliation effort</span></div></button>
+          <button class="metric-card" data-open="accounting-payments"><span class="metric-icon">◷</span><div><strong>−23%</strong><span>Vendor payment cycle</span></div></button>
+          <button class="metric-card" data-open="doc-verify"><span class="metric-icon">♟</span><div><strong>4.4 <small>FTE</small></strong><span>Capacity unlocked</span></div></button>
+        </div>
+      </section>
+
+
+      <section class="section shelf-section career-section" id="journey" data-shelf="career">
+        <div class="section-heading">
+          <div><span class="section-kicker">Earlier chapters</span><h2>Across Industries</h2><p class="section-subcopy">The domains changed. The product muscle compounded.</p></div>
+          <a class="text-button" href="product-journey.html">View full journey <span>→</span></a>
+        </div>
+        <div class="poster-row poster-row-wide" id="careerRow">
+          <article class="wide-card career-travel" tabindex="0" data-id="reservation-system" data-search="publicis reservation system travel hospitality booking payments checkout transaction platform">
+            <div class="career-reservation-ui"><i></i><i></i><i></i><div class="reservation-route">NYC → LON</div></div>
+            <div class="wide-overlay"></div>
+            <div class="wide-copy"><h3>RESERVATIONS<br>AT SCALE</h3><p>Travel & Hospitality platform</p><span class="status status-blue">PUBLICIS</span></div>
+            <div class="wide-caption"><strong>Reservation System</strong><span>Booking, checkout, payments & reliability</span></div>
+          </article>
+          <article class="wide-card career-iiot" tabindex="0" data-id="digital-manufacturing" data-search="capgemini digital manufacturing iiot mes fmcg plants industrial operations">
+            <div class="factory-grid"><i></i><i></i><i></i><i></i><div class="factory-pulse"></div></div>
+            <div class="wide-overlay"></div>
+            <div class="wide-copy"><h3>50+ PLANTS.<br>ONE DIGITAL THREAD.</h3><p>Digital Manufacturing / IIoT</p><span class="status status-blue">CAPGEMINI</span></div>
+            <div class="wide-caption"><strong>Digital Manufacturing</strong><span>MES, IIoT & global operational transformation</span></div>
+          </article>
+          <article class="wide-card career-journey" tabindex="0" data-id="product-journey" data-search="product journey career capgemini publicis serviceLink systems transactions platforms ai">
+            <div class="career-bands"><span>SYSTEMS</span><span>TRANSACTIONS</span><span>PLATFORMS</span><span>AI</span></div>
+            <div class="wide-overlay"></div>
+            <div class="wide-copy"><h3>HOW I<br>GOT HERE</h3><p>Systems → Transactions → Platforms → AI</p><span class="status status-gold">JOURNEY</span></div>
+            <div class="wide-caption"><strong>My Product Journey</strong><span>Nine years of building across industries</span></div>
+          </article>
+</div>
+      </section>
+
+      <section class="section receipts-section" id="receipts">
+        <div class="section-heading">
+          <div><span class="section-kicker">Credibility layer</span><h2>The Receipts</h2></div>
+          <span class="section-note">Awards, credentials and the occasional proof point.</span>
+        </div>
+        <div class="receipt-grid">
+          <a class="receipt-card receipt-featured" href="receipts.html#awards"><span class="receipt-label">PUBLICIS SAPIENT</span><strong>2× Recognized</strong><p>PCG All Star · You Make It Happen.</p></a>
+          <a class="receipt-card" href="receipts.html#awards"><span class="receipt-label">CAPGEMINI</span><strong>Customer Hero</strong><p>Client-feedback recognition for impactful solutions and delivery excellence.</p></a>
+          <a class="receipt-card" href="receipts.html#certifications"><span class="receipt-label">CLOUD</span><strong>AWS Certified</strong><p>Cloud Practitioner</p></a>
+          <a class="receipt-card" href="receipts.html#certifications"><span class="receipt-label">PRODUCT</span><strong>SAFe POPM</strong><p>Product Owner / Product Manager</p></a>
+          <a class="receipt-card" href="receipts.html#certifications"><span class="receipt-label">PROCESS</span><strong>Lean Six Sigma</strong><p>Green Belt</p></a>
+          <a class="receipt-card receipt-education" href="receipts.html#education"><span class="receipt-label">EDUCATION</span><strong>CMU + IIM Udaipur</strong><p>MS Product Management · MBA Global Supply Chain Management</p></a>
+        </div>
+        <p class="receipt-note"><a href="receipts.html">Open all awards, certifications & education →</a></p>
+      </section>
+
+      <section class="section shelf-section" id="think" data-shelf="think">
+        <div class="section-heading">
+          <div><span class="section-kicker">Product brain</span><h2>How I Think</h2></div>
+          <button class="text-button" data-scroll-row="thinkRow">See all <span>→</span></button>
+        </div>
+        <div class="poster-row poster-row-wide" id="thinkRow">
+          <article class="wide-card think-simulator" tabindex="0" data-id="decision-simulator" data-search="decision simulator you're the pm interactive ai product judgment">
+            <div class="wide-visual"><div class="decision-wall"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="person-silhouette"></div></div>
+            <div class="wide-overlay"></div>
+            <div class="wide-copy"><h3>YOU’RE<br>THE PM</h3><p>Accuracy 91% · Cost $0.24 · Human review 100%</p><span class="status status-gold">INTERACTIVE</span></div>
+            <div class="wide-caption"><strong>Decision Simulator</strong><span>One decision changes everything.</span></div>
+          </article>
+
+          <article class="wide-card think-copilot" tabindex="0" data-id="ai-product-copilot" data-search="ai product copilot challenge thinking prd agent product management">
+            <div class="wide-visual"><div class="copilot-lines"><span>Ask Why?</span><span>Alternatives</span><span>Risks</span><span>Evidence</span></div><div class="profile-orb"></div></div>
+            <div class="wide-overlay"></div>
+            <div class="wide-copy"><h3>DON’T WRITE MY PRD.<br><em>CHALLENGE IT.</em></h3><span class="status status-blue">PROTOTYPE</span></div>
+            <div class="wide-caption"><strong>AI Product Copilot</strong><span>A critical thinking partner for better products</span></div>
+          </article>
+
+          <article class="wide-card think-pmfor" tabindex="0" data-id="if-i-were-pm" data-search="if i were pm strategy essays chatgpt linkedin google maps">
+            <div class="wide-visual"><div class="chess-piece king">♛</div><div class="chess-piece pawn">♟</div></div>
+            <div class="wide-overlay"></div>
+            <div class="wide-copy"><h3>IF I WERE<br>PM FOR…</h3><p>Product strategy essays on real-world problems.</p><span class="status status-blue">SERIES</span></div>
+            <div class="wide-caption"><strong>If I Were PM For...</strong><span>Product strategy essays on real-world problems</span></div>
+          </article>
+
+          <article class="wide-card think-teardown" tabindex="0" data-id="product-teardowns" data-search="product teardown netflix stripe ramp analysis ux">
+            <div class="wide-visual"><div class="bulb">◉</div><div class="scribbles">JTBD · Friction · Trust · Delight</div></div>
+            <div class="wide-overlay"></div>
+            <div class="wide-copy"><h3>WHY GREAT<br>PRODUCTS WORK</h3><span class="status status-blue">TEARDOWN</span></div>
+            <div class="wide-caption"><strong>Product Teardowns</strong><span>Deconstructing products to learn what works</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shelf-section" id="build" data-shelf="build">
+        <div class="section-heading">
+          <div><span class="section-kicker">Experimental shelf</span><h2>CK Labs</h2></div>
+          <span class="section-note">Building, testing and occasionally breaking things.</span>
+        </div>
+        <div class="lab-grid">
+          <button class="lab-card" data-open="ai-product-copilot"><span>LAB 001</span><strong>AI Product Copilot</strong><small>BUILDING</small></button>
+          <button class="lab-card" data-open="decision-simulator"><span>LAB 002</span><strong>Decision Simulator</strong><small>PROTOTYPE</small></button>
+          <button class="lab-card" data-open="cross-doc"><span>LAB 003</span><strong>Cross-Document Intelligence</strong><small>EXPERIMENT</small></button>
+          <button class="lab-card" data-open="productflix-search"><span>LAB 004</span><strong>Productflix AI Search</strong><small>IDEA</small></button>
+        </div>
+      </section>
+
+      <section class="section shelf-section life-section" id="life" data-shelf="life">
+        <div class="section-heading">
+          <div><span class="section-kicker">Off the clock</span><h2>Beyond Product</h2></div>
+          <button class="text-button" data-scroll-row="lifeRow">See all <span>→</span></button>
+        </div>
+        <div class="poster-row poster-row-life" id="lifeRow">
+          <article class="life-card life-lens real-life-card" tabindex="0" data-id="through-my-lens" data-search="photography through my lens travel photos stories" style="--life-image:url('assets/photos/boats-sunset-leaves.jpg')">
+            <div class="life-bg real-life-bg"></div>
+            <div class="life-shade"></div><div class="life-copy"><h3>THROUGH<br>MY LENS</h3><span>Photography</span></div><div class="life-caption"><strong>Through My Lens</strong><small>Photography, stories and perspectives</small></div>
+          </article>
+          <article class="life-card life-passport real-life-card" tabindex="0" data-id="passport-mode" data-search="passport mode travel road trips cities stargazing" style="--life-image:url('assets/photos/sunset-silhouette.jpg')">
+            <div class="life-bg real-life-bg"></div>
+            <div class="life-shade"></div><div class="life-copy"><h3>PASSPORT<br>MODE</h3><span>Travel</span></div><div class="life-caption"><strong>Passport Mode</strong><small>Travel, places and people</small></div>
+          </article>
+          <article class="life-card life-game real-life-card" tabindex="0" data-id="game-on" data-search="sports badminton game on active" style="--life-image:url('assets/photos/pool.jpg')">
+            <div class="life-bg real-life-bg"></div>
+            <div class="life-shade"></div><div class="life-copy"><h3>GAME<br>ON</h3><span>Sports</span></div><div class="life-caption"><strong>Game On</strong><small>Badminton, sports and staying active</small></div>
+          </article>
+          <article class="life-card life-food real-life-card" tabindex="0" data-id="worth-calories" data-search="food worth calories indian food cooking restaurants" style="--life-image:url('assets/photos/chai-maggi.jpg')">
+            <div class="life-bg real-life-bg"></div>
+            <div class="life-shade"></div><div class="life-copy"><h3>WORTH THE<br>CALORIES</h3><span>Food</span></div><div class="life-caption"><strong>Worth the Calories</strong><small>Food, flavours and great meals</small></div>
+          </article>
+          <article class="life-card life-lensfront real-life-card" tabindex="0" data-id="in-front-lens" data-search="style modelling in front of lens fashion personal" style="--life-image:url('assets/photos/blue-wall-portrait.jpg')">
+            <div class="life-bg real-life-bg"></div>
+            <div class="life-shade"></div><div class="life-copy"><h3>IN FRONT<br>OF THE LENS</h3><span>Style</span></div><div class="life-caption"><strong>In Front of the Lens</strong><small>A more personal side</small></div>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="section about-section" id="about">
+        <div class="about-shell about-shell-media">
+          <div class="about-photo"><img src="assets/photos/navy-blazer.jpg" alt="Chirag Kochar"></div>
+          <div>
+            <span class="section-kicker">About Chirag</span>
+            <h2>I build products where complex systems, money and increasingly AI intersect.</h2>
+          </div>
+          <div class="about-copy">
+            <p>My career has moved from digital manufacturing and travel platforms to financial infrastructure and enterprise AI. The through-line is simple: make complicated workflows easier to understand, operate and scale.</p>
+            <p>Outside product, I’m usually planning a trip, playing badminton, photographing something, or debating whether the food stop is worth the detour.</p>
+            <div class="about-links"><a href="product-journey.html">My product journey →</a><a href="receipts.html">Awards & credentials →</a><a href="mailto:ckochar@tepper.cmu.edu">Email me →</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-cta">
+        <span class="section-kicker">End credits?</span>
+        <h2>Still watching?</h2>
+        <p>Maybe we should build something together.</p>
+        <div class="cta-actions"><a href="mailto:ckochar@tepper.cmu.edu" class="button button-primary">Let’s Talk</a><a href="https://www.linkedin.com/in/datadriven-chiragkochar/" class="button button-secondary" target="_blank" rel="noreferrer">LinkedIn</a></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+  <section class="quick-modal" id="quickModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-hero" id="modalHero"></div>
+    <div class="modal-body">
+      <div class="modal-meta" id="modalMeta"></div>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-summary" id="modalSummary"></p>
+      <div class="modal-metrics" id="modalMetrics"></div>
+      <div class="modal-sections">
+        <div><span>THE PROBLEM</span><p id="modalProblem"></p></div>
+        <div><span>MY ROLE</span><p id="modalRole"></p></div>
+      </div>
+      <div class="modal-actions">
+        <button class="button button-primary" id="modalPrimary">Explore Story</button>
+        <button class="button button-secondary" id="modalSecondary">Back to Browsing</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search Productflix" hidden>
+    <div class="search-panel">
+      <button class="modal-close" id="searchClose" aria-label="Close search">×</button>
+      <span class="section-kicker">Search Productflix</span>
+      <label for="searchInput">What do you want to explore?</label>
+      <div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg><input id="searchInput" autocomplete="off" placeholder='Try “AI”, “payments”, “0→1”, “travel”…' /></div>
+      <div class="search-chips"><button data-query="AI">AI</button><button data-query="payments">Payments</button><button data-query="product">Product</button><button data-query="travel">Travel</button><button data-query="mortgage">Mortgage</button></div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

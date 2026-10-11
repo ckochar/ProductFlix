@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b0e" />
+  <title>You're the PM — Decision Simulator | Productflix</title>
+  <meta name="description" content="A playable product strategy simulator by Chirag Kochar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="simulator.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="sim-header">
+    <a class="brand" href="index.html" aria-label="Back to Productflix home">
+      <span class="brand-main">PRODUCT<span>FLIX</span></span>
+      <span class="brand-sub">by Chirag Kochar</span>
+    </a>
+    <div class="episode-label"><span>INTERACTIVE</span> · HOW I THINK</div>
+    <a class="exit-link" href="index.html">Exit simulation <span>×</span></a>
+  </header>
+
+  <main>
+    <section class="intro" id="intro">
+      <div class="intro-kicker">YOU'RE THE PM</div>
+      <h1>One decision changes <em>everything.</em></h1>
+      <p>You own an AI document-review product. Leadership wants lower operating cost without compromising compliance. There is no perfect answer — only trade-offs.</p>
+
+      <div class="starting-state" aria-label="Starting scenario metrics">
+        <div><span>Accuracy</span><strong>91%</strong></div>
+        <div><span>Cost / package</span><strong>$0.24</strong></div>
+        <div><span>Human review</span><strong>100%</strong></div>
+        <div><span>Throughput</span><strong>1.0×</strong></div>
+      </div>
+
+      <div class="brief-card">
+        <span class="brief-label">THE ASK</span>
+        <blockquote>“Reduce operating cost by <strong>40%</strong> this quarter. Keep critical compliance escapes near zero.”</blockquote>
+        <div class="brief-meta"><span>Stakeholders: Ops · Risk · Finance · Engineering</span><span>Timeline: 12 weeks</span></div>
+      </div>
+
+      <button class="primary-button" id="startButton"><span>▶</span> Start the scenario</button>
+      <p class="microcopy">4 decisions · ~3 minutes · no trick questions</p>
+    </section>
+
+    <section class="game" id="game" hidden>
+      <div class="game-topbar">
+        <div class="progress-wrap">
+          <div class="progress-copy"><span id="roundLabel">Decision 1 of 4</span><span id="progressPercent">25%</span></div>
+          <div class="progress-track"><i id="progressBar"></i></div>
+        </div>
+        <button class="restart-button" id="restartTop">↻ Restart</button>
+      </div>
+
+      <div class="game-layout">
+        <aside class="scoreboard" aria-label="Live product metrics">
+          <span class="scoreboard-kicker">LIVE PRODUCT</span>
+          <h2>Operating model</h2>
+
+          <div class="metric-list">
+            <div class="metric-row">
+              <div class="metric-name"><span>Accuracy</span><b id="accuracyDelta">—</b></div>
+              <div class="metric-value"><strong id="accuracyValue">91%</strong><div class="meter"><i id="accuracyMeter"></i></div></div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-name"><span>Cost / pkg</span><b id="costDelta">—</b></div>
+              <div class="metric-value"><strong id="costValue">$0.24</strong><div class="meter reverse"><i id="costMeter"></i></div></div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-name"><span>Human review</span><b id="humanDelta">—</b></div>
+              <div class="metric-value"><strong id="humanValue">100%</strong><div class="meter"><i id="humanMeter"></i></div></div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-name"><span>Throughput</span><b id="speedDelta">—</b></div>
+              <div class="metric-value"><strong id="speedValue">1.0×</strong><div class="meter"><i id="speedMeter"></i></div></div>
+            </div>
+          </div>
+
+          <div class="risk-card">
+            <span>Compliance risk</span>
+            <strong id="riskLabel">LOW</strong>
+            <div class="risk-dots" id="riskDots"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="goal-card">
+            <span>Leadership target</span>
+            <strong id="savingsValue">0%</strong>
+            <small>cost reduction toward 40%</small>
+          </div>
+        </aside>
+
+        <section class="decision-stage">
+          <div class="round-kicker" id="roundKicker">ROUND 01 · COST PRESSURE</div>
+          <h2 id="decisionTitle">Where do you start?</h2>
+          <p class="scenario-copy" id="scenarioCopy"></p>
+
+          <div class="signal-strip" id="signalStrip"></div>
+
+          <div class="choice-grid" id="choiceGrid"></div>
+
+          <div class="consequence" id="consequence" hidden>
+            <div class="consequence-topline">
+              <span id="consequenceTag">CONSEQUENCE</span>
+              <button class="ghost-button" id="changeChoice">Change choice</button>
+            </div>
+            <h3 id="consequenceTitle"></h3>
+            <p id="consequenceCopy"></p>
+            <div class="impact-chips" id="impactChips"></div>
+            <button class="primary-button compact" id="continueButton">Continue <span>→</span></button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="results" id="results" hidden>
+      <div class="results-header">
+        <span class="results-kicker">SIMULATION COMPLETE</span>
+        <h1>Your PM style:<br><em id="archetypeName">Systems Thinker</em></h1>
+        <p id="archetypeSummary"></p>
+      </div>
+
+      <div class="result-grid">
+        <section class="result-scorecard">
+          <span class="panel-kicker">FINAL PRODUCT</span>
+          <div class="final-metrics">
+            <div><span>Accuracy</span><strong id="finalAccuracy">—</strong></div>
+            <div><span>Cost / package</span><strong id="finalCost">—</strong></div>
+            <div><span>Human review</span><strong id="finalHuman">—</strong></div>
+            <div><span>Throughput</span><strong id="finalSpeed">—</strong></div>
+          </div>
+          <div class="target-result" id="targetResult"></div>
+        </section>
+
+        <section class="style-map">
+          <span class="panel-kicker">HOW YOU OPTIMIZED</span>
+          <div class="style-bars">
+            <div><span>Risk discipline</span><div><i id="barRisk"></i></div></div>
+            <div><span>Systems thinking</span><div><i id="barSystems"></i></div></div>
+            <div><span>Cost focus</span><div><i id="barCost"></i></div></div>
+            <div><span>Experimentation</span><div><i id="barExperiment"></i></div></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="decision-recap">
+        <div class="section-title"><span>YOUR PATH</span><h2>Four decisions. One operating model.</h2></div>
+        <div class="recap-list" id="recapList"></div>
+      </section>
+
+      <section class="chirag-approach">
+        <div class="approach-intro">
+          <span>COMPARE NOTES</span>
+          <h2>What would Chirag prioritize?</h2>
+          <p>There isn't one universally correct path. My default is to separate deterministic certainty from probabilistic judgment, then spend human attention where risk is highest.</p>
+          <button class="secondary-button" id="revealApproach">Reveal my approach</button>
+        </div>
+        <div class="approach-flow" id="approachFlow" hidden>
+          <div><span>01</span><strong>Rules before model calls</strong><p>Move high-confidence deterministic checks out of the LLM path first.</p></div>
+          <div><span>02</span><strong>Risk-tier human review</strong><p>Keep humans on critical exceptions and low-confidence cases instead of reviewing everything.</p></div>
+          <div><span>03</span><strong>Route by task complexity</strong><p>Use smaller models for simple extraction; reserve stronger models for ambiguous reasoning.</p></div>
+          <div><span>04</span><strong>Measure escapes, not vibes</strong><p>Roll out behind evals, override telemetry and a feedback loop before relaxing controls further.</p></div>
+        </div>
+      </section>
+
+      <div class="results-actions">
+        <button class="primary-button" id="playAgain">↻ Play again</button>
+        <a class="secondary-button link-button" href="index.html#think">Back to How I Think</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>PRODUCTFLIX</span>
+    <small>Interactive product thinking by Chirag Kochar</small>
+  </footer>
+
+  <script src="simulator.js"></script>
+</body>
+</html>

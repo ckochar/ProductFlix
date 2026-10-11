@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b0e" />
+  <title>Doc Verify — Productflix</title>
+  <meta name="description" content="Doc Verify — an AI-assisted document intelligence case study by Chirag Kochar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body class="case-page">
+  <header class="site-header case-header">
+    <a class="brand" href="index.html" aria-label="Back to Productflix home">
+      <span class="brand-main">PRODUCT<span>FLIX</span></span>
+      <span class="brand-sub">by Chirag Kochar</span>
+    </a>
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="#problem">Problem</a>
+      <a href="#discovery">Discovery</a>
+      <a href="#strategy">Strategy</a>
+      <a href="#solution">Solution</a>
+      <a href="#impact">Impact</a>
+    </nav>
+    <a class="back-link" href="index.html">← Back to browse</a>
+  </header>
+
+  <main>
+    <section class="case-hero" id="top">
+      <div class="case-hero-copy">
+        <div class="eyebrow"><span>★</span> FEATURE FILM · ENTERPRISE AI</div>
+        <p class="case-overline">DOC VERIFY</p>
+        <h1>What if document QC happened <em>before</em> humans had to find the errors?</h1>
+        <p class="case-lede">I led the 0→1 product strategy for an AI-assisted quality-control workflow combining deterministic rules, OCR/LLM interpretation and human review for high-volume mortgage document packages.</p>
+        <div class="case-meta-row">
+          <span>Role <strong>Product Lead</strong></span>
+          <span>Stage <strong>In Production</strong></span>
+          <span>Domain <strong>Mortgage Operations</strong></span>
+          <span>Year <strong>2026</strong></span>
+        </div>
+        <a class="scroll-cue" href="#problem">Start the story <span>↓</span></a>
+      </div>
+
+      <div class="case-hero-art" aria-label="Illustration of Doc Verify document intelligence">
+        <div class="case-doc-stack back-a"></div>
+        <div class="case-doc-stack back-b"></div>
+        <div class="case-doc-main">
+          <div class="case-doc-head">MORTGAGE DOCUMENT</div>
+          <div class="case-doc-sub">Execution package · QC review</div>
+          <div class="case-doc-lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="case-signature">Joanne Quinn</div>
+        </div>
+        <div class="case-detect detect-a"><span>SIGNATURE</span><b>Detected ✓</b></div>
+        <div class="case-detect detect-b"><span>NOTARY</span><b>Validated ✓</b></div>
+        <div class="case-detect detect-c"><span>DATE</span><b>APR 14, 2026</b></div>
+        <div class="case-scan"></div>
+      </div>
+
+      <div class="case-kpis" aria-label="Doc Verify headline impact">
+        <div><strong>79.2K</strong><span>packages / year</span></div>
+        <div><strong>8–10 min</strong><span>manual review before</span></div>
+        <div><strong>4.4 FTE</strong><span>capacity opportunity</span></div>
+        <div><strong>$184.8K</strong><span>annual gross savings</span></div>
+      </div>
+    </section>
+
+    <section class="case-section opening" id="problem">
+      <div class="case-section-label">01 · THE PROBLEM</div>
+      <div class="case-grid two-col">
+        <div class="case-copy-block">
+          <h2>High-volume QC was still a human search problem.</h2>
+          <p>Loan-modification document packages flowed through a manual quality-control step before downstream processing. Auditors repeatedly searched for the same types of execution failures — missing borrower signatures, notary issues and incorrect dates — package after package.</p>
+          <p>The workflow worked, but it consumed skilled capacity on highly repetitive checks and pushed exceptions into a rework cycle that could take days.</p>
+        </div>
+        <aside class="case-callout">
+          <span>THE CORE QUESTION</span>
+          <blockquote>Which parts of QC should machines decide, which parts should AI interpret, and where should humans remain in control?</blockquote>
+        </aside>
+      </div>
+
+      <div class="before-flow" aria-label="Previous manual review workflow">
+        <div><span>01</span><strong>Package arrives</strong><small>Documents enter QC queue</small></div>
+        <b>→</b>
+        <div><span>02</span><strong>Auditor searches</strong><small>Signature, notary, dates</small></div>
+        <b>→</b>
+        <div><span>03</span><strong>Manual decision</strong><small>Pass / reject / investigate</small></div>
+        <b>→</b>
+        <div><span>04</span><strong>Rework</strong><small>7–14 days in some cases</small></div>
+      </div>
+    </section>
+
+    <section class="case-section dark-band" id="discovery">
+      <div class="case-section-label">02 · DISCOVERY</div>
+      <div class="case-grid discovery-grid">
+        <div class="case-copy-block">
+          <h2>The breakthrough wasn't “use AI.” It was finding where AI was unnecessary.</h2>
+          <p>Working with operations, I decomposed the QC workflow into repeatable failure modes. Roughly 80% of the review surface was rule-oriented, and most deterministic rejects clustered around a small set of checks.</p>
+          <p>That changed the solution architecture. Instead of asking an LLM to judge everything, we could reserve AI for document interpretation and ambiguity while keeping deterministic validation explicit and auditable.</p>
+        </div>
+        <div class="insight-card">
+          <span>DISCOVERY PRINCIPLE</span>
+          <strong>Automate certainty.<br>Interpret ambiguity.<br>Escalate risk.</strong>
+        </div>
+      </div>
+
+      <div class="reject-chart" aria-label="Distribution of common deterministic rejection categories">
+        <div class="reject-row"><div class="reject-head"><strong>Notary execution</strong><span>42%</span></div><div class="bar"><i style="--w:42%"></i></div></div>
+        <div class="reject-row"><div class="reject-head"><strong>Borrower signature</strong><span>28%</span></div><div class="bar"><i style="--w:28%"></i></div></div>
+        <div class="reject-row"><div class="reject-head"><strong>Date / document checks</strong><span>16%</span></div><div class="bar"><i style="--w:16%"></i></div></div>
+        <p class="chart-note">Illustrative portfolio-safe summary of the highest-frequency deterministic reject categories.</p>
+      </div>
+    </section>
+
+    <section class="case-section" id="strategy">
+      <div class="case-section-label">03 · PRODUCT STRATEGY</div>
+      <div class="strategy-heading">
+        <h2>The obvious solution was “automate QC.”<br><em>The product decision was selective automation.</em></h2>
+      </div>
+
+      <div class="decision-matrix">
+        <article>
+          <span class="decision-number">01</span>
+          <div class="decision-icon deterministic">✓</div>
+          <h3>Deterministic rules</h3>
+          <p>Use explicit business logic where the answer can be computed reliably.</p>
+          <small>Example · required field presence</small>
+        </article>
+        <article>
+          <span class="decision-number">02</span>
+          <div class="decision-icon ai">✦</div>
+          <h3>AI interpretation</h3>
+          <p>Use OCR + LLM reasoning where documents vary in layout or language.</p>
+          <small>Example · locating execution evidence</small>
+        </article>
+        <article>
+          <span class="decision-number">03</span>
+          <div class="decision-icon human">◎</div>
+          <h3>Human review</h3>
+          <p>Route uncertainty, overrides and material exceptions to an auditor.</p>
+          <small>Example · conflicting evidence</small>
+        </article>
+      </div>
+
+      <div class="principles-strip">
+        <div><b>01</b><span>Fail safely</span></div>
+        <div><b>02</b><span>Show evidence</span></div>
+        <div><b>03</b><span>Preserve override</span></div>
+        <div><b>04</b><span>Log every decision</span></div>
+      </div>
+    </section>
+
+    <section class="case-section solution-section" id="solution">
+      <div class="case-section-label">04 · THE PRODUCT</div>
+      <div class="case-grid two-col solution-intro">
+        <div class="case-copy-block">
+          <h2>AI reviews first. Humans review what matters.</h2>
+          <p>Doc Verify creates a first-pass QC layer before manual review. It ingests a package, identifies relevant documents and execution evidence, runs deterministic checks, applies AI interpretation where needed, and routes exceptions with evidence for human confirmation.</p>
+        </div>
+        <div class="product-pillars">
+          <span>Rules engine</span><span>OCR / extraction</span><span>LLM interpretation</span><span>Confidence</span><span>Human override</span><span>Audit trail</span>
+        </div>
+      </div>
+
+      <div class="system-flow" aria-label="Doc Verify product workflow">
+        <div class="flow-node"><i>01</i><strong>Package</strong><span>Inbound documents</span></div>
+        <b>→</b>
+        <div class="flow-node"><i>02</i><strong>Extract</strong><span>OCR + document signals</span></div>
+        <b>→</b>
+        <div class="flow-node accent"><i>03</i><strong>Verify</strong><span>Rules + AI interpretation</span></div>
+        <b>→</b>
+        <div class="flow-node"><i>04</i><strong>Route</strong><span>Pass / review / fail</span></div>
+        <b>→</b>
+        <div class="flow-node"><i>05</i><strong>Audit</strong><span>Evidence + override trail</span></div>
+      </div>
+
+      <div class="product-screen" aria-label="Conceptual Doc Verify review screen">
+        <div class="screen-top"><span>DOC VERIFY</span><span>Package #EX-29481</span><b>REVIEW READY</b></div>
+        <div class="screen-layout">
+          <div class="screen-doc">
+            <div class="screen-paper">
+              <strong>LOAN MODIFICATION AGREEMENT</strong>
+              <div class="screen-text-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="screen-highlight sig"><small>BORROWER SIGNATURE</small></div>
+              <div class="screen-highlight notar"><small>NOTARY BLOCK</small></div>
+            </div>
+          </div>
+          <div class="screen-results">
+            <div class="result-head"><span>QC RESULT</span><strong>Needs Review</strong></div>
+            <div class="check pass"><i>✓</i><div><strong>Borrower signature</strong><small>Evidence found · 98% confidence</small></div></div>
+            <div class="check pass"><i>✓</i><div><strong>Execution date</strong><small>Matches package date</small></div></div>
+            <div class="check review"><i>!</i><div><strong>Notary commission</strong><small>Low-confidence field · review requested</small></div></div>
+            <div class="evidence-box"><span>WHY THIS WAS FLAGGED</span><p>The notary commission text is partially obscured. Verify evidence before approving.</p></div>
+            <div class="review-actions"><button>Confirm exception</button><button>Override & approve</button></div>
+          </div>
+        </div>
+        <p class="prototype-note">Conceptualized portfolio UI — not a production screenshot.</p>
+      </div>
+    </section>
+
+    <section class="case-section dark-band" id="decisions">
+      <div class="case-section-label">05 · KEY PRODUCT DECISIONS</div>
+      <h2 class="section-display">The product is defined by the boundaries.</h2>
+      <div class="decision-list">
+        <article><span>01</span><div><h3>Why not automate 100%?</h3><p>In regulated workflows, false confidence can be more expensive than manual effort. Critical or ambiguous conditions remain reviewable by design.</p></div></article>
+        <article><span>02</span><div><h3>Why rules before LLMs?</h3><p>If a condition is deterministic, making it probabilistic adds cost and risk without adding product value.</p></div></article>
+        <article><span>03</span><div><h3>Why evidence with every exception?</h3><p>An auditor should not have to trust a model. They should see exactly what triggered the decision and where the relevant evidence lives.</p></div></article>
+        <article><span>04</span><div><h3>Why phased rollout?</h3><p>The rollout sequence was designed to learn from lower-complexity flows before expanding into more variable execution channels.</p></div></article>
+      </div>
+    </section>
+
+    <section class="case-section rollout-section" id="rollout">
+      <div class="case-section-label">06 · ROLLOUT</div>
+      <div class="case-grid two-col">
+        <div class="case-copy-block">
+          <h2>Ship the learning loop, not the big bang.</h2>
+          <p>The product was sequenced by workflow complexity: start with RON, then expand to QC-only packages, then mobile-notary flows. Each phase increases variation and exception complexity while preserving the same underlying verification model.</p>
+        </div>
+        <div class="rollout-rail">
+          <div class="rollout-step active"><b>M4</b><span>RON</span><small>Start with structured execution</small></div>
+          <div class="rollout-step"><b>M5</b><span>QC-Only</span><small>Expand package variation</small></div>
+          <div class="rollout-step"><b>M6</b><span>Mobile Notary</span><small>Highest execution variability</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section impact-section" id="impact">
+      <div class="case-section-label">07 · IMPACT</div>
+      <h2 class="section-display">The business case made the product real.</h2>
+      <div class="impact-grid">
+        <article><strong>7,392</strong><span>annual hours released</span></article>
+        <article><strong>$184.8K</strong><span>annual gross savings</span></article>
+        <article><strong>17.5 mo</strong><span>modeled payback</span></article>
+        <article><strong>111%</strong><span>3-year modeled ROI</span></article>
+      </div>
+      <div class="impact-statement">
+        <span>FROM</span><strong>8–10 min manual QC</strong><i>→</i><span>TO</span><strong>AI first-pass + 2–3 min human review target</strong>
+      </div>
+    </section>
+
+    <section class="case-section next-section">
+      <div class="case-section-label">08 · WHAT I’D DO NEXT</div>
+      <div class="next-grid">
+        <article><span>01</span><h3>Build an evaluation harness</h3><p>Track precision, recall, critical false negatives and reviewer disagreement by rule and document type.</p></article>
+        <article><span>02</span><h3>Turn overrides into learning</h3><p>Use human corrections to identify weak rules, ambiguous layouts and model failure modes.</p></article>
+        <article><span>03</span><h3>Add cross-document intelligence</h3><p>Move from validating pages independently to identifying contradictions across the entire package.</p></article>
+        <article><span>04</span><h3>Scale profiles by workflow</h3><p>Make validation policies configurable by channel, client, document package and risk tolerance.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section case-ending">
+      <span class="section-kicker">THE TAKEAWAY</span>
+      <h2>Good AI products aren't about replacing the human.<br>They're about redesigning <em>where human judgment belongs.</em></h2>
+      <p>This case study intentionally stays at a portfolio-safe level and omits confidential implementation details, client information and proprietary artifacts.</p>
+      <div class="case-end-actions">
+        <a class="button button-primary" href="index.html#work">← Back to Productflix</a>
+        <a class="button button-secondary" href="index.html#think">Explore How I Think</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="case-study.js"></script>
+</body>
+</html>

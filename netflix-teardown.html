@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why We Keep Scrolling — Productflix Teardown</title>
+  <meta name="description" content="A product teardown of Netflix's browsing model and the product decisions adapted into Productflix." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="teardown.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Back to Productflix">
+      <span>PRODUCTFLIX</span><small>by Chirag Kochar</small>
+    </a>
+    <nav>
+      <a href="index.html#think">← How I Think</a>
+      <a href="#principles">Principles</a>
+      <a href="#adaptation">Productflix</a>
+      <a href="#takeaways">PM Takeaways</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-copy reveal">
+        <div class="eyebrow">PRODUCT TEARDOWN · EPISODE 01</div>
+        <h1>WHY WE<br><em>KEEP SCROLLING</em></h1>
+        <p class="dek">Netflix doesn't ask you to understand its catalog. It turns a massive library into a sequence of small, coherent decisions.</p>
+        <div class="hero-meta">
+          <span>7 min read</span><span>UX + Product Strategy</span><span>Interactive analysis</span>
+        </div>
+        <div class="hero-actions">
+          <a class="primary" href="#principles">Start teardown ↓</a>
+          <button class="secondary" id="jumpProductflix">Why Productflix looks like this</button>
+        </div>
+      </div>
+
+      <div class="hero-art reveal delay-1" aria-hidden="true">
+        <div class="screen-frame">
+          <div class="screen-nav"><b>N</b><i></i><i></i><i></i><span></span></div>
+          <div class="screen-hero"><div class="fake-title">ONE BIG<br>DECISION</div></div>
+          <div class="screen-row">
+            <div></div><div></div><div></div><div></div>
+          </div>
+          <div class="screen-row dim">
+            <div></div><div></div><div></div><div></div>
+          </div>
+        </div>
+        <div class="annotation a1">01 · Coherent rows</div>
+        <div class="annotation a2">02 · Strong first position</div>
+        <div class="annotation a3">03 · Progressive disclosure</div>
+      </div>
+    </section>
+
+    <section class="thesis reveal">
+      <span class="section-no">00</span>
+      <div>
+        <h2>The real product isn't streaming.<br>It's <em>decision compression.</em></h2>
+        <p>A large catalog creates cognitive load. Netflix reduces that load by grouping content into meaningful rows, ranking items within them, and letting people move vertically between intents or horizontally within one intent. The homepage becomes a navigation system for uncertainty.</p>
+      </div>
+    </section>
+
+    <section class="principles" id="principles">
+      <div class="section-head reveal">
+        <span class="section-no">01</span>
+        <div><div class="eyebrow">THE MECHANICS</div><h2>Five reasons the browse experience works</h2></div>
+      </div>
+
+      <div class="principle-shell reveal">
+        <div class="principle-list" role="tablist" aria-label="Netflix product principles">
+          <button class="principle-tab active" data-principle="rows"><span>01</span><b>Rows reduce choice</b><small>Group before you rank.</small></button>
+          <button class="principle-tab" data-principle="ranking"><span>02</span><b>Position is product</b><small>Top-left earns attention.</small></button>
+          <button class="principle-tab" data-principle="disclosure"><span>03</span><b>Reveal in layers</b><small>Poster → preview → detail.</small></button>
+          <button class="principle-tab" data-principle="personal"><span>04</span><b>Intent beats taxonomy</b><small>Personalize the path.</small></button>
+          <button class="principle-tab" data-principle="feedback"><span>05</span><b>Behavior trains the page</b><small>Every action is a signal.</small></button>
+        </div>
+
+        <div class="principle-detail" id="principleDetail">
+          <div class="detail-kicker">PRINCIPLE 01</div>
+          <h3>Rows turn a catalog into decisions.</h3>
+          <p>Instead of one giant ranked wall, a row gives every group a clear meaning. A visitor can judge the entire group quickly, skip it, or explore it deeply.</p>
+          <div class="compare-grid">
+            <div><span>NETFLIX PATTERN</span><strong>“Because you watched…”</strong><p>A coherent reason to inspect a cluster.</p></div>
+            <div><span>PRODUCTFLIX ADAPTATION</span><strong>“How I Think”</strong><p>A coherent reason to inspect product judgment rather than work history.</p></div>
+          </div>
+          <div class="lesson"><b>PM lesson</b><span>Structure the choice before optimizing the choice.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="adaptation" id="adaptation">
+      <div class="section-head reveal">
+        <span class="section-no">02</span>
+        <div><div class="eyebrow">BORROW · ADAPT · REJECT</div><h2>Why Productflix works this way</h2></div>
+      </div>
+
+      <div class="adapt-grid">
+        <article class="adapt-card borrow reveal">
+          <div class="adapt-label">BORROW</div>
+          <h3>Horizontal shelves</h3>
+          <p>Different visitors arrive with different intents. Shelves make those intents visible without forcing a rigid navigation tree.</p>
+          <div class="mini-row"><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="adapt-card adapt reveal delay-1">
+          <div class="adapt-label">ADAPT</div>
+          <h3>Personalization → visitor mode</h3>
+          <p>Netflix learns from viewing. Productflix asks upfront: hiring, product & AI, building, or life — then reorders the homepage.</p>
+          <div class="mode-pills"><span>Hiring</span><span class="active">Product & AI</span><span>Life</span></div>
+        </article>
+        <article class="adapt-card reject reveal delay-2">
+          <div class="adapt-label">REJECT</div>
+          <h3>Endless consumption</h3>
+          <p>A portfolio should create confidence, not maximize minutes watched. Every shelf needs an exit: case study, artifact, resume, or conversation.</p>
+          <div class="exit-line"><span>Browse</span><b>→</b><span>Understand</span><b>→</b><strong>Act</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="anatomy reveal">
+      <span class="section-no">03</span>
+      <div class="anatomy-copy">
+        <div class="eyebrow">PROGRESSIVE DISCLOSURE</div>
+        <h2>Don't make the card carry the case study.</h2>
+        <p>The homepage earns curiosity. The quick view earns another click. The case study earns confidence. Each layer has one job.</p>
+      </div>
+      <div class="anatomy-flow">
+        <div class="layer"><span>01</span><b>POSTER</b><small>Can I earn 2 seconds?</small></div>
+        <div class="arrow">→</div>
+        <div class="layer"><span>02</span><b>QUICK VIEW</b><small>Is this relevant to me?</small></div>
+        <div class="arrow">→</div>
+        <div class="layer"><span>03</span><b>DEEP DIVE</b><small>Does this person think well?</small></div>
+        <div class="arrow">→</div>
+        <div class="layer final"><span>04</span><b>ACTION</b><small>Talk · hire · explore</small></div>
+      </div>
+    </section>
+
+    <section class="anti-patterns reveal">
+      <div class="section-head compact">
+        <span class="section-no">04</span>
+        <div><div class="eyebrow">WHAT I WOULD NOT COPY</div><h2>Inspiration isn't imitation.</h2></div>
+      </div>
+      <div class="anti-grid">
+        <div><span>01</span><b>No autoplay noise</b><p>Motion should support orientation, not fight for attention.</p></div>
+        <div><span>02</span><b>No fake recommendation magic</b><p>Personalization must be understandable and useful, not theater.</p></div>
+        <div><span>03</span><b>No infinite shelves</b><p>Curate hard. A portfolio is a point of view, not a warehouse.</p></div>
+        <div><span>04</span><b>No Netflix cosplay</b><p>Borrow the browsing model, then build an identity of your own.</p></div>
+      </div>
+    </section>
+
+    <section class="takeaways" id="takeaways">
+      <div class="section-head reveal">
+        <span class="section-no">05</span>
+        <div><div class="eyebrow">PM TAKEAWAYS</div><h2>What I would carry into another product</h2></div>
+      </div>
+      <div class="takeaway-stack">
+        <article class="reveal"><span>01</span><h3>Design for intent, not information architecture.</h3><p>Users don't arrive thinking in your taxonomy. Give them paths that match what they are trying to accomplish.</p></article>
+        <article class="reveal"><span>02</span><h3>Ranking and presentation are one product decision.</h3><p>The best item buried in the wrong place is functionally a bad recommendation.</p></article>
+        <article class="reveal"><span>03</span><h3>Progressive disclosure protects attention.</h3><p>Show only enough information to support the next decision — then reveal more when intent increases.</p></article>
+        <article class="reveal"><span>04</span><h3>Optimize for the outcome, not the engagement proxy.</h3><p>Netflix wants a confident play. Productflix wants a confident understanding of who I am and how I think.</p></article>
+      </div>
+    </section>
+
+    <section class="sources reveal">
+      <div>
+        <div class="eyebrow">RESEARCH NOTES</div>
+        <h2>What this teardown is grounded in</h2>
+      </div>
+      <div class="source-links">
+        <a href="https://help.netflix.com/en/node/100639/" target="_blank" rel="noreferrer"><b>Netflix Help Center</b><span>How the recommendation system ranks rows and titles ↗</span></a>
+        <a href="https://netflixtechblog.com/learning-a-personalized-homepage-aa8ec670359a" target="_blank" rel="noreferrer"><b>Netflix TechBlog</b><span>Why coherent rows help users navigate a large catalog ↗</span></a>
+      </div>
+    </section>
+
+    <section class="end-card reveal">
+      <div class="eyebrow">END OF EPISODE 01</div>
+      <h2>Good products don't remove choice.<br><em>They make choice feel manageable.</em></h2>
+      <p>That is the part of Netflix I wanted Productflix to inherit.</p>
+      <div class="end-actions">
+        <a class="primary" href="index.html#think">← Back to How I Think</a>
+        <a class="secondary link-button" href="decision-simulator.html">Play You're the PM →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>PRODUCTFLIX · Product Teardowns</span>
+    <span>Episode 01 · Netflix</span>
+  </footer>
+
+  <script src="teardown.js"></script>
+</body>
+</html>

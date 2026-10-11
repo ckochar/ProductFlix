@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b0e" />
+  <title>Title Automation — Productflix</title>
+  <meta name="description" content="A Productflix case study on automating title search and production workflows across multiple lines of business." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css" />
+  <style>
+    :root{--accent:#77b6ff;--accent-2:#c7e1ff;--accent-rgb:119,182,255}
+    .title-hero{background:
+      radial-gradient(circle at 82% 30%,rgba(70,134,219,.20),transparent 34%),
+      radial-gradient(circle at 18% 10%,rgba(242,198,109,.08),transparent 28%),
+      #090b0e}
+    .hero-kicker,.eyebrow{color:#9ac8ff}.title-gradient{background:linear-gradient(100deg,#f7f3e8 8%,#a7d3ff 54%,#6ca9f0);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-visual{position:relative;min-height:510px}
+    .workflow-stage{position:absolute;inset:8% 2% 7% 5%;border:1px solid rgba(255,255,255,.08);border-radius:28px;background:linear-gradient(145deg,rgba(21,27,36,.95),rgba(8,11,15,.78));box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden}
+    .workflow-stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 92%)}
+    .flow-node{position:absolute;width:180px;min-height:92px;padding:16px 18px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(12,16,22,.92);box-shadow:0 15px 35px rgba(0,0,0,.28);z-index:2}
+    .flow-node small{display:block;font-size:10px;letter-spacing:.14em;color:#7990a9;margin-bottom:7px;text-transform:uppercase}.flow-node strong{font-size:15px;line-height:1.25}.flow-node em{display:block;color:#8fbff0;font-size:11px;font-style:normal;margin-top:8px}
+    .n1{left:6%;top:13%}.n2{left:38%;top:13%}.n3{right:6%;top:13%}.n4{left:16%;bottom:13%}.n5{right:16%;bottom:13%}
+    .flow-line{position:absolute;height:2px;background:linear-gradient(90deg,rgba(112,177,246,.12),rgba(112,177,246,.9),rgba(112,177,246,.12));z-index:1;transform-origin:left center;box-shadow:0 0 15px rgba(86,159,239,.3)}
+    .l1{left:27%;top:25%;width:16%}.l2{left:59%;top:25%;width:16%}.l3{left:20%;top:48%;width:23%;transform:rotate(31deg)}.l4{left:58%;top:49%;width:22%;transform:rotate(149deg)}.l5{left:37%;bottom:24%;width:28%}
+    .automation-badge{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);z-index:3;width:138px;height:138px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(119,182,255,.24),rgba(16,29,45,.94) 62%);border:1px solid rgba(119,182,255,.42);box-shadow:0 0 70px rgba(82,160,245,.18)}
+    .automation-badge strong{font-size:29px;line-height:1}.automation-badge span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#9cc9f7;margin-top:6px}
+    .impact-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}.impact-strip div{padding:22px;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025)}.impact-strip strong{display:block;font-size:28px;color:#d7eaff}.impact-strip span{font-size:12px;color:#8c98a8}
+    .manual-grid,.strategy-grid,.decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.manual-card,.strategy-card,.decision-card{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);border-radius:22px;padding:26px}.manual-card .num{font-size:12px;color:#80baff;letter-spacing:.12em}.manual-card h3,.strategy-card h3,.decision-card h3{font-size:20px;margin:12px 0 9px}.manual-card p,.strategy-card p,.decision-card p{color:#9ca5b3;line-height:1.65;font-size:14px}
+    .blueprint{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}.blueprint-panel{border-radius:24px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(160deg,rgba(19,25,34,.95),rgba(9,12,17,.96));padding:28px;min-height:390px}.blueprint-panel h3{font-size:20px;margin-bottom:22px}.blueprint-steps{display:grid;gap:13px}.bp-step{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:13px;border:1px solid rgba(255,255,255,.07);border-radius:15px;padding:14px;background:rgba(255,255,255,.022)}.bp-step b{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:rgba(119,182,255,.12);color:#9dcbfb}.bp-step strong{font-size:13px}.bp-step span{font-size:11px;color:#728196}.bp-step em{font-style:normal;font-size:10px;padding:5px 9px;border-radius:999px;background:rgba(83,169,113,.12);color:#89d6a3}
+    .exception-box{margin-top:16px;padding:16px;border-left:2px solid #f2c66d;background:rgba(242,198,109,.05);border-radius:0 12px 12px 0}.exception-box strong{display:block;font-size:13px}.exception-box span{font-size:12px;color:#8894a5}
+    .savings-stack{display:grid;gap:16px}.saving-row{border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);padding:19px}.saving-row header{display:flex;justify-content:space-between;align-items:baseline}.saving-row strong{font-size:15px}.saving-row b{font-size:21px;color:#cfe6ff}.saving-row p{font-size:12px;color:#8290a2;margin-top:8px}.saving-bar{height:7px;background:#151c25;border-radius:999px;margin-top:14px;overflow:hidden}.saving-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#548ed0,#9bcaff)}
+    .confidential-note{margin-top:20px;font-size:11px;color:#738093;line-height:1.6}.confidential-note strong{color:#97a4b5}
+    @media(max-width:900px){.impact-strip,.manual-grid,.strategy-grid,.decision-grid{grid-template-columns:1fr 1fr}.blueprint{grid-template-columns:1fr}.hero-visual{min-height:430px}.flow-node{width:145px}.n2{left:40%}}
+    @media(max-width:640px){.impact-strip,.manual-grid,.strategy-grid,.decision-grid{grid-template-columns:1fr}.hero-visual{min-height:390px}.flow-node{width:126px;padding:11px}.flow-node strong{font-size:12px}.automation-badge{width:105px;height:105px}.automation-badge strong{font-size:21px}}
+  </style>
+</head>
+<body class="case-page">
+<header class="case-header">
+  <a class="case-brand" href="index.html"><span>PRODUCT<span>FLIX</span></span><small>by Chirag Kochar</small></a>
+  <nav><a href="index.html#work">Work</a><a href="#strategy">Strategy</a><a href="#impact">Impact</a></nav>
+  <a class="back-link" href="index.html">← Back to Productflix</a>
+</header>
+<main>
+  <section class="case-hero title-hero">
+    <div class="case-hero-copy reveal">
+      <div class="eyebrow">FEATURE FILM · ENTERPRISE AUTOMATION</div>
+      <h1 class="title-gradient">TITLE<br>AUTOMATION</h1>
+      <p class="case-lede">Reimagining title search and production as an intelligent workflow — connecting external title sources, automating search and data keying, assembling the package, and routing only the exceptions to people.</p>
+      <div class="case-tags"><span>0→1 Platform</span><span>8 LOBs</span><span>Integrations</span><span>AI Extraction</span><span>Human Review</span></div>
+      <div class="impact-strip">
+        <div><strong>$1.5M</strong><span>projected annual savings</span></div>
+        <div><strong>8</strong><span>lines of business</span></div>
+        <div><strong>Search + Keying</strong><span>primary savings engines</span></div>
+        <div><strong>End-to-end</strong><span>workflow automation</span></div>
+      </div>
+      <p class="confidential-note"><strong>Portfolio note:</strong> Company-specific provider names, proprietary systems, detailed rules and implementation data are intentionally abstracted. The case focuses on the product problem, system design and measurable business impact.</p>
+    </div>
+    <div class="hero-visual reveal" aria-label="Conceptual title automation workflow">
+      <div class="workflow-stage">
+        <div class="flow-node n1"><small>01 · Request</small><strong>Order & search criteria</strong><em>Configurable rules</em></div>
+        <div class="flow-node n2"><small>02 · Source</small><strong>Title plant / provider integrations</strong><em>Search automatically</em></div>
+        <div class="flow-node n3"><small>03 · Retrieve</small><strong>Documents & source data</strong><em>Assemble evidence</em></div>
+        <div class="flow-node n4"><small>04 · Understand</small><strong>Extract + key structured data</strong><em>AI + validation</em></div>
+        <div class="flow-node n5"><small>05 · Produce</small><strong>Package + exception routing</strong><em>Human where needed</em></div>
+        <i class="flow-line l1"></i><i class="flow-line l2"></i><i class="flow-line l3"></i><i class="flow-line l4"></i><i class="flow-line l5"></i>
+        <div class="automation-badge"><div><strong>$1.5M</strong><span>annual savings</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section reveal" id="problem">
+    <div class="section-label">01 · THE PROBLEM</div>
+    <div class="split-heading"><h2>The work looked like one process.<br><em>It was actually a chain of manual handoffs.</em></h2><p>Title search and production crossed external sources, documents, internal systems and people. Every manual touch increased cycle time, inconsistency and operating cost.</p></div>
+    <div class="manual-grid">
+      <article class="manual-card"><span class="num">01</span><h3>Manual Search</h3><p>Operators navigated provider or title-source workflows, entered search criteria and retrieved results manually.</p></article>
+      <article class="manual-card"><span class="num">02</span><h3>Manual Keying</h3><p>Relevant information from reports and documents had to be interpreted and entered into downstream systems.</p></article>
+      <article class="manual-card"><span class="num">03</span><h3>Manual Assembly</h3><p>Documents, data and production outputs were combined into the final package through multiple repetitive steps.</p></article>
+      <article class="manual-card"><span class="num">04</span><h3>Fragmented Exceptions</h3><p>When data was missing or ambiguous, work depended on individual judgment rather than a consistent exception model.</p></article>
+      <article class="manual-card"><span class="num">05</span><h3>Different LOB Rules</h3><p>Eight business lines shared a core problem but had different products, providers, rules and downstream needs.</p></article>
+      <article class="manual-card"><span class="num">06</span><h3>Hard-to-Scale Labor</h3><p>Growth meant adding operational capacity unless the workflow itself changed.</p></article>
+    </div>
+  </section>
+
+  <section class="case-section dark-band reveal" id="strategy">
+    <div class="section-label">02 · PRODUCT STRATEGY</div>
+    <div class="split-heading"><h2>Don’t automate a task.<br><em>Automate the production system.</em></h2><p>The product bet was to treat title production as an orchestrated workflow: rules decide what to search, integrations retrieve it, automation interprets it, and people resolve only the uncertain cases.</p></div>
+    <div class="strategy-grid">
+      <article class="strategy-card"><h3>1. Configure, don’t hard-code</h3><p>Shared platform capabilities with business-line-specific rules allow the same automation backbone to support multiple LOBs.</p></article>
+      <article class="strategy-card"><h3>2. Integrate at the source</h3><p>Title plants and data providers become part of the workflow rather than destinations users manually visit.</p></article>
+      <article class="strategy-card"><h3>3. Remove keying</h3><p>Extract structured data from retrieved documents and source outputs, validate it, and write it downstream automatically.</p></article>
+      <article class="strategy-card"><h3>4. Assemble automatically</h3><p>Retrieve the required evidence and documents, apply package rules, and build the production output without repetitive operator work.</p></article>
+      <article class="strategy-card"><h3>5. Design exceptions first</h3><p>Ambiguity, missing data and provider failures route to a human queue with context instead of breaking the automated flow.</p></article>
+      <article class="strategy-card"><h3>6. Preserve control</h3><p>Automation needs source traceability, confidence, auditability and human override because the output supports regulated workflows.</p></article>
+    </div>
+  </section>
+
+  <section class="case-section reveal" id="experience">
+    <div class="section-label">03 · THE PRODUCT BLUEPRINT</div>
+    <div class="split-heading"><h2>One orchestration layer.<br><em>Many providers, rules and outputs.</em></h2><p>A conceptual view of the platform experience: automate the happy path, make the system observable, and create a focused workbench for the exceptions.</p></div>
+    <div class="blueprint">
+      <div class="blueprint-panel">
+        <h3>Automated production run</h3>
+        <div class="blueprint-steps">
+          <div class="bp-step"><b>1</b><div><strong>Order received</strong><span>LOB + product + property context</span></div><em>READY</em></div>
+          <div class="bp-step"><b>2</b><div><strong>Search strategy resolved</strong><span>Rules select source / provider path</span></div><em>AUTO</em></div>
+          <div class="bp-step"><b>3</b><div><strong>Search executed</strong><span>Provider integration returns results</span></div><em>AUTO</em></div>
+          <div class="bp-step"><b>4</b><div><strong>Evidence retrieved</strong><span>Reports + documents assembled</span></div><em>AUTO</em></div>
+          <div class="bp-step"><b>5</b><div><strong>Data extracted + validated</strong><span>Structured fields mapped downstream</span></div><em>AUTO</em></div>
+          <div class="bp-step"><b>6</b><div><strong>Package produced</strong><span>Output built and audit trail written</span></div><em>DONE</em></div>
+        </div>
+        <div class="exception-box"><strong>Exception path</strong><span>Missing source data, conflicting values, low confidence, provider timeout, unsupported rule → contextual human review.</span></div>
+      </div>
+      <div class="blueprint-panel">
+        <h3>Where the $1.5M comes from</h3>
+        <div class="savings-stack">
+          <div class="saving-row"><header><strong>Search automation</strong><b>Primary lever</b></header><p>Remove repetitive provider navigation, query entry, result collection and search handoffs.</p><div class="saving-bar"><i style="width:91%"></i></div></div>
+          <div class="saving-row"><header><strong>Data keying automation</strong><b>Primary lever</b></header><p>Extract, validate and map production data instead of re-entering information from reports and documents.</p><div class="saving-bar"><i style="width:88%"></i></div></div>
+          <div class="saving-row"><header><strong>Retrieval + package assembly</strong><b>Supporting lever</b></header><p>Reduce manual document collection, naming, ordering and assembly steps.</p><div class="saving-bar"><i style="width:68%"></i></div></div>
+          <div class="saving-row"><header><strong>Exception concentration</strong><b>Quality lever</b></header><p>Move human capacity away from repetitive work and toward complex judgment and exception resolution.</p><div class="saving-bar"><i style="width:60%"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section dark-band reveal" id="decisions">
+    <div class="section-label">04 · KEY PRODUCT DECISIONS</div>
+    <div class="split-heading"><h2>The hard part wasn’t OCR.<br><em>It was designing the operating model around automation.</em></h2><p>The product choices determine whether automation becomes a scalable platform or a brittle collection of scripts.</p></div>
+    <div class="decision-grid">
+      <article class="decision-card"><h3>Shared platform vs. eight bespoke automations</h3><p>Build reusable orchestration and configuration primitives, then express LOB variation as rules and profiles.</p></article>
+      <article class="decision-card"><h3>Rules vs. AI</h3><p>Use deterministic logic where the answer is knowable; use extraction/intelligence for unstructured content; never ask a model to solve what a rule can settle.</p></article>
+      <article class="decision-card"><h3>Happy path vs. exception path</h3><p>Success is not “100% touchless.” Success is maximizing safe straight-through processing while making exceptions faster to resolve.</p></article>
+      <article class="decision-card"><h3>Provider abstraction</h3><p>Keep downstream workflows from being tightly coupled to one external source so providers can evolve without redesigning the product.</p></article>
+      <article class="decision-card"><h3>Source traceability</h3><p>Every automated field needs an explainable source so reviewers can verify why the system populated it.</p></article>
+      <article class="decision-card"><h3>Scale through observability</h3><p>Track where automation succeeds, where it falls out, why it falls out, and which rules/providers drive operational load.</p></article>
+    </div>
+  </section>
+
+  <section class="case-section reveal" id="impact">
+    <div class="section-label">05 · BUSINESS IMPACT</div>
+    <div class="impact-hero"><span>PROJECTED ANNUAL SAVINGS</span><strong>$1.5M</strong><p>Driven primarily by automating title search and manual data keying across the production workflow.</p></div>
+    <div class="impact-grid">
+      <article><strong>8 LOBs</strong><span>common automation backbone</span></article>
+      <article><strong>Search</strong><span>manual navigation → integrated execution</span></article>
+      <article><strong>Keying</strong><span>manual entry → structured extraction</span></article>
+      <article><strong>Exceptions</strong><span>broad manual work → focused review</span></article>
+    </div>
+  </section>
+
+  <section class="case-section dark-band reveal" id="next">
+    <div class="section-label">06 · WHAT I’D BUILD NEXT</div>
+    <div class="split-heading"><h2>Once the workflow is automated,<br><em>the next product is intelligence about the workflow.</em></h2><p>Automation creates structured signals that can improve provider strategy, exception prevention, quality and future decisioning.</p></div>
+    <div class="strategy-grid">
+      <article class="strategy-card"><h3>Provider intelligence</h3><p>Route work based on performance, cost, geography, turnaround and source quality.</p></article>
+      <article class="strategy-card"><h3>Exception prediction</h3><p>Use historical fallout patterns to identify likely exceptions before the workflow reaches a dead end.</p></article>
+      <article class="strategy-card"><h3>Cross-document validation</h3><p>Compare entities, dates, vesting and legal descriptions across the package rather than validating fields independently.</p></article>
+    </div>
+  </section>
+
+  <section class="case-cta reveal">
+    <span>NEXT ON PRODUCTFLIX</span>
+    <h2>See how I approach<br>AI document verification.</h2>
+    <a href="doc-verify.html" class="primary-link">Watch Doc Verify →</a>
+    <a href="index.html#work" class="secondary-link">Back to Featured Work</a>
+  </section>
+</main>
+<script src="case-study.js"></script>
+</body>
+</html>

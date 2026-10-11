@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b0e" />
+  <title>$180M Moves Here — Productflix</title>
+  <meta name="description" content="Accounting & Vendor Payments — a financial infrastructure case study by Chirag Kochar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+  <link rel="stylesheet" href="accounting.css" />
+</head>
+<body class="case-page money-case">
+  <header class="site-header case-header">
+    <a class="brand" href="index.html" aria-label="Back to Productflix home">
+      <span class="brand-main">PRODUCT<span>FLIX</span></span>
+      <span class="brand-sub">by Chirag Kochar</span>
+    </a>
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="#problem">Problem</a>
+      <a href="#system">System</a>
+      <a href="#strategy">Strategy</a>
+      <a href="#product">Product</a>
+      <a href="#impact">Impact</a>
+    </nav>
+    <a class="back-link" href="index.html">← Back to browse</a>
+  </header>
+
+  <main>
+    <section class="case-hero money-hero" id="top">
+      <div class="case-hero-copy">
+        <div class="eyebrow"><span>◆</span> FEATURE FILM · FINANCIAL INFRASTRUCTURE</div>
+        <p class="case-overline">ACCOUNTING & VENDOR PAYMENTS</p>
+        <h1><em>$180M+</em> moved through the platform. The product challenge was making every dollar explainable.</h1>
+        <p class="case-lede">I led platform product work across accounting, reconciliation and vendor-payment workflows supporting multiple lines of business — turning fragmented operations into a more controlled, observable money-movement system.</p>
+        <div class="case-meta-row">
+          <span>Role <strong>Product Lead</strong></span>
+          <span>Stage <strong>Shipped & Scaling</strong></span>
+          <span>Domain <strong>Financial Operations</strong></span>
+          <span>Scope <strong>8 LOBs</strong></span>
+        </div>
+        <a class="scroll-cue" href="#problem">Follow the money <span>↓</span></a>
+      </div>
+
+      <div class="money-hero-art" aria-label="Illustration of a financial operations platform">
+        <div class="ledger-panel">
+          <div class="ledger-head"><span>PAYMENT CONTROL CENTER</span><b>LIVE</b></div>
+          <div class="ledger-balance"><small>ANNUAL FLOW</small><strong>$180M+</strong><span>Across 8 lines of business</span></div>
+          <div class="ledger-lines">
+            <div><i class="ok"></i><span>Provider disbursement</span><b>$18,420.00</b></div>
+            <div><i class="ok"></i><span>Vendor payment</span><b>$6,875.32</b></div>
+            <div><i class="warn"></i><span>Exception review</span><b>$2,140.00</b></div>
+            <div><i class="ok"></i><span>Client reimbursement</span><b>$11,288.75</b></div>
+          </div>
+        </div>
+        <div class="money-node node-a"><span>REQUEST</span><b>Approved</b></div>
+        <div class="money-node node-b"><span>PAYMENT</span><b>Released</b></div>
+        <div class="money-node node-c"><span>RECON</span><b>Matched ✓</b></div>
+        <svg class="money-path" viewBox="0 0 600 240" aria-hidden="true"><path d="M20 184 C120 20 206 218 316 94 S490 64 580 30"/></svg>
+      </div>
+
+      <div class="case-kpis" aria-label="Accounting and payments headline impact">
+        <div><strong>$180M+</strong><span>annual disbursements</span></div>
+        <div><strong>150+</strong><span>service providers</span></div>
+        <div><strong>8</strong><span>lines of business</span></div>
+        <div><strong>−30%</strong><span>reconciliation effort</span></div>
+      </div>
+    </section>
+
+    <section class="case-section opening" id="problem">
+      <div class="case-section-label">01 · THE PROBLEM</div>
+      <div class="case-grid two-col">
+        <div class="case-copy-block">
+          <h2>Payment problems rarely start at the payment.</h2>
+          <p>Money movement sat at the end of a much larger operational chain: orders, provider work, approvals, invoices, disbursement requests, accounting entries and reconciliation. When those upstream states did not line up, the symptoms appeared downstream as payment failures, manual research, vendor delays and leakage.</p>
+          <p>The core product problem was not simply “make payments faster.” It was creating enough shared structure and controls that operations, accounting and provider teams could understand what happened — and why.</p>
+        </div>
+        <aside class="case-callout money-callout">
+          <span>THE PRODUCT QUESTION</span>
+          <blockquote>How do you make high-volume money movement fast enough for operations, controlled enough for accounting, and transparent enough to debug?</blockquote>
+        </aside>
+      </div>
+
+      <div class="friction-grid">
+        <article><span>01</span><strong>Fragmented state</strong><p>Operational status and financial status did not always move together.</p></article>
+        <article><span>02</span><strong>Manual reconciliation</strong><p>Teams spent time proving that transactions matched the work that created them.</p></article>
+        <article><span>03</span><strong>Exception hunting</strong><p>Failures required cross-system research instead of a clear resolution path.</p></article>
+        <article><span>04</span><strong>Provider friction</strong><p>Delays and ambiguity degraded vendor experience and cycle time.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section dark-band" id="system">
+      <div class="case-section-label">02 · SEE THE SYSTEM</div>
+      <div class="case-grid discovery-grid">
+        <div class="case-copy-block">
+          <h2>I treated accounting as a product system, not a back-office feature.</h2>
+          <p>The useful unit of analysis was the full transaction lifecycle. Every dollar had a business event that created it, a set of approvals that legitimized it, a payment state that moved it, and an accounting state that had to reconcile it.</p>
+          <p>Mapping those states exposed where product design could eliminate ambiguity instead of merely adding another operational report.</p>
+        </div>
+        <div class="insight-card money-insight">
+          <span>SYSTEM PRINCIPLE</span>
+          <strong>One transaction.<br>One traceable state.<br>One resolution path.</strong>
+        </div>
+      </div>
+
+      <div class="money-lifecycle" aria-label="End-to-end transaction lifecycle">
+        <div><i>01</i><strong>Work event</strong><span>Service completed</span></div><b>→</b>
+        <div><i>02</i><strong>Validate</strong><span>Amount + eligibility</span></div><b>→</b>
+        <div><i>03</i><strong>Approve</strong><span>Control checkpoint</span></div><b>→</b>
+        <div class="active"><i>04</i><strong>Disburse</strong><span>Move money</span></div><b>→</b>
+        <div><i>05</i><strong>Reconcile</strong><span>Match financial state</span></div><b>→</b>
+        <div><i>06</i><strong>Resolve</strong><span>Route exceptions</span></div>
+      </div>
+    </section>
+
+    <section class="case-section" id="strategy">
+      <div class="case-section-label">03 · PRODUCT STRATEGY</div>
+      <div class="strategy-heading">
+        <h2>Speed mattered. <em>Explainability mattered more.</em></h2>
+      </div>
+
+      <div class="decision-matrix money-decisions">
+        <article>
+          <span class="decision-number">01</span>
+          <div class="decision-icon deterministic">◎</div>
+          <h3>Make state explicit</h3>
+          <p>Define transaction states so operations and accounting interpret the same event the same way.</p>
+          <small>Reduce ambiguity before it becomes an exception</small>
+        </article>
+        <article>
+          <span class="decision-number">02</span>
+          <div class="decision-icon ai">↔</div>
+          <h3>Design reconciliation in</h3>
+          <p>Link payment, order and accounting identifiers so matching becomes a system behavior, not a spreadsheet task.</p>
+          <small>Build traceability into the workflow</small>
+        </article>
+        <article>
+          <span class="decision-number">03</span>
+          <div class="decision-icon human">!</div>
+          <h3>Productize exceptions</h3>
+          <p>Give failed or unmatched transactions a reason, owner and next action instead of sending teams hunting.</p>
+          <small>Exceptions are a workflow, not an edge case</small>
+        </article>
+      </div>
+
+      <div class="principles-strip">
+        <div><b>01</b><span>Prevent duplicate money movement</span></div>
+        <div><b>02</b><span>Preserve an audit trail</span></div>
+        <div><b>03</b><span>Expose failure reasons</span></div>
+        <div><b>04</b><span>Optimize the full cycle</span></div>
+      </div>
+    </section>
+
+    <section class="case-section solution-section" id="product">
+      <div class="case-section-label">04 · THE PRODUCT</div>
+      <div class="case-grid two-col solution-intro">
+        <div class="case-copy-block">
+          <h2>A control plane for operational money movement.</h2>
+          <p>The product experience connected request validation, approvals, payment execution, reconciliation and exception handling into a more observable workflow. The design goal was not one giant accounting screen — it was making the right financial context visible at the exact point a user had to decide or act.</p>
+        </div>
+        <div class="product-pillars">
+          <span>Eligibility rules</span><span>Approval controls</span><span>Payment status</span><span>Reconciliation</span><span>Exception routing</span><span>Audit history</span>
+        </div>
+      </div>
+
+      <div class="payment-screen" aria-label="Conceptual accounting and vendor payments control center">
+        <div class="pay-screen-top"><span>PAYMENTS CONTROL CENTER</span><div><b>8 LOBs</b><b>150+ providers</b><b>$180M+ flow</b></div></div>
+        <div class="pay-screen-grid">
+          <aside class="pay-sidebar">
+            <span class="active">Overview</span><span>Payments</span><span>Reconciliation</span><span>Exceptions</span><span>Providers</span>
+          </aside>
+          <div class="pay-main">
+            <div class="pay-summary">
+              <article><span>READY TO RELEASE</span><strong>$482,640</strong><small>326 transactions</small></article>
+              <article><span>RECONCILED TODAY</span><strong>97.8%</strong><small>Automatic + confirmed</small></article>
+              <article><span>NEEDS ACTION</span><strong>18</strong><small>Exceptions routed</small></article>
+            </div>
+            <div class="pay-table">
+              <div class="pay-row head"><span>Transaction</span><span>Provider</span><span>Amount</span><span>State</span><span>Reconciliation</span></div>
+              <div class="pay-row"><span>#VP-43821</span><span>Provider 014</span><span>$8,420.00</span><span><i class="pill paid">Paid</i></span><span><i class="pill matched">Matched</i></span></div>
+              <div class="pay-row"><span>#VP-43822</span><span>Provider 087</span><span>$2,140.00</span><span><i class="pill hold">Review</i></span><span><i class="pill exception">Mismatch</i></span></div>
+              <div class="pay-row"><span>#VP-43823</span><span>Provider 103</span><span>$11,288.75</span><span><i class="pill paid">Paid</i></span><span><i class="pill matched">Matched</i></span></div>
+            </div>
+            <div class="exception-drawer"><span>EXCEPTION · #VP-43822</span><strong>Invoice amount does not match approved service amount.</strong><p>Assigned to Payment Operations · source records linked · release blocked until resolved.</p><button>Review source records</button></div>
+          </div>
+        </div>
+        <p class="prototype-note">Conceptualized portfolio UI — not a production screenshot.</p>
+      </div>
+    </section>
+
+    <section class="case-section dark-band" id="decisions">
+      <div class="case-section-label">05 · KEY PRODUCT DECISIONS</div>
+      <h2 class="section-display">Financial products are defined by the failure paths.</h2>
+      <div class="decision-list">
+        <article><span>01</span><div><h3>Why not optimize only for payment speed?</h3><p>Faster money movement without better controls can move errors faster too. Cycle time had to improve without weakening validation and traceability.</p></div></article>
+        <article><span>02</span><div><h3>Why make reconciliation part of the product?</h3><p>Because a payment is not operationally complete when money leaves. It is complete when the financial record matches the business event.</p></div></article>
+        <article><span>03</span><div><h3>Why focus on exception UX?</h3><p>Happy-path automation creates value, but unresolved exceptions consume disproportionate effort. A reason + owner + next action turns failure into a manageable queue.</p></div></article>
+        <article><span>04</span><div><h3>Why standardize across lines of business?</h3><p>Shared primitives reduce duplicated logic while still allowing LOB-specific policy at the edges.</p></div></article>
+      </div>
+    </section>
+
+    <section class="case-section impact-section" id="impact">
+      <div class="case-section-label">06 · IMPACT</div>
+      <h2 class="section-display">The platform improved both the flow of money and the flow of work.</h2>
+      <div class="impact-grid money-impact">
+        <article><strong>−30%</strong><span>reconciliation effort</span></article>
+        <article><strong>−23%</strong><span>vendor payment cycle</span></article>
+        <article><strong>−8%</strong><span>payment failures</span></article>
+        <article><strong>+$480K</strong><span>revenue leakage addressed</span></article>
+      </div>
+      <div class="impact-statement money-statement">
+        <span>FROM</span><strong>fragmented financial workflows</strong><i>→</i><span>TO</span><strong>traceable, exception-aware money movement</strong>
+      </div>
+      <p class="portfolio-safe-note">Metrics are presented at a portfolio-safe aggregate level and exclude confidential client, provider and implementation details.</p>
+    </section>
+
+    <section class="case-section next-section">
+      <div class="case-section-label">07 · WHAT I’D DO NEXT</div>
+      <div class="next-grid">
+        <article><span>01</span><h3>Predict exceptions earlier</h3><p>Use historical failure patterns to flag risky transactions before they reach payment release.</p></article>
+        <article><span>02</span><h3>Make reconciliation event-driven</h3><p>Reduce batch-oriented checks by updating financial state as source events occur.</p></article>
+        <article><span>03</span><h3>Build provider intelligence</h3><p>Surface cycle time, exception rate and quality signals by provider to improve routing and performance management.</p></article>
+        <article><span>04</span><h3>Unify financial observability</h3><p>Create one transaction timeline spanning operational event, approval, payment, accounting and reconciliation state.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section case-ending money-ending">
+      <span class="section-kicker">THE TAKEAWAY</span>
+      <h2>Payments are not a button.<br>They're a <em>system of states, controls and trust.</em></h2>
+      <p>The strongest financial infrastructure products make complex money movement feel boring — because the complexity has been designed into the system instead of pushed onto the user.</p>
+      <div class="case-end-actions">
+        <a class="button button-primary" href="index.html#work">← Back to Productflix</a>
+        <a class="button button-secondary" href="doc-verify.html">Next: Doc Verify →</a>
+      </div>
+    </section>
+  </main>
+  <script src="case-study.js"></script>
+</body>
+</html>

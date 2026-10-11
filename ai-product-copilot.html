@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b0e" />
+  <title>AI Product Copilot — Challenge My Thinking | Productflix</title>
+  <meta name="description" content="An interactive product-thinking challenge by Chirag Kochar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="copilot.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="copilot-header">
+    <a class="brand" href="index.html" aria-label="Back to Productflix home">
+      <span class="brand-main">PRODUCT<span>FLIX</span></span>
+      <span class="brand-sub">by Chirag Kochar</span>
+    </a>
+    <div class="episode-label"><span>CK LABS</span> · INTERACTIVE PROTOTYPE</div>
+    <a class="exit-link" href="index.html#think">Exit challenge <span>×</span></a>
+  </header>
+
+  <main>
+    <section class="intro" id="intro">
+      <span class="intro-kicker">AI PRODUCT COPILOT</span>
+      <h1>Don’t write my PRD.<br><em>Challenge it.</em></h1>
+      <p class="intro-copy">Most AI PM tools help you produce documents faster. This one does the opposite: it slows you down long enough to question the assumption underneath the document.</p>
+
+      <div class="principle-strip" aria-label="Copilot principles">
+        <span>Challenge causality</span><i></i><span>Surface alternatives</span><i></i><span>Demand evidence</span><i></i><span>Design the smallest test</span>
+      </div>
+
+      <div class="assumption-card">
+        <div class="input-head">
+          <div>
+            <span class="field-label">YOUR PRODUCT ASSUMPTION</span>
+            <p>Write the sentence you’re tempted to build a roadmap around.</p>
+          </div>
+          <span class="prototype-badge">LOCAL CHALLENGE ENGINE</span>
+        </div>
+        <label class="sr-only" for="assumptionInput">Product assumption</label>
+        <textarea id="assumptionInput" maxlength="280" placeholder="Example: Users are abandoning checkout because identity verification takes too long."></textarea>
+        <div class="input-foot">
+          <div class="example-row">
+            <span>Try:</span>
+            <button data-example="Users are abandoning checkout because identity verification takes too long.">Checkout</button>
+            <button data-example="Customers would use our analytics product more if we added an AI assistant.">AI feature</button>
+            <button data-example="Enterprise clients are churning because onboarding is too manual.">B2B onboarding</button>
+          </div>
+          <div class="counter"><span id="charCount">0</span>/280</div>
+        </div>
+        <button class="primary-button" id="challengeButton"><span>✦</span> Challenge my thinking</button>
+      </div>
+      <p class="prototype-note">This V1 is an interactive heuristic prototype — not a live LLM. The production version can plug into a secure model endpoint later.</p>
+    </section>
+
+    <section class="workspace" id="workspace" hidden>
+      <div class="workspace-topbar">
+        <div>
+          <span class="workspace-kicker">CHALLENGE ROOM</span>
+          <strong id="workspaceAssumption"></strong>
+        </div>
+        <button class="restart-button" id="startOver">↻ New assumption</button>
+      </div>
+
+      <div class="workspace-grid">
+        <aside class="stage-nav" aria-label="Challenge stages">
+          <button class="stage-item is-active" data-stage="1"><span>01</span><div><strong>Interrogate</strong><small>What are you assuming?</small></div></button>
+          <button class="stage-item" data-stage="2" disabled><span>02</span><div><strong>Evidence</strong><small>What actually supports it?</small></div></button>
+          <button class="stage-item" data-stage="3" disabled><span>03</span><div><strong>Experiment</strong><small>What should you test?</small></div></button>
+          <button class="stage-item" data-stage="4" disabled><span>04</span><div><strong>Reframe</strong><small>What do we believe now?</small></div></button>
+        </aside>
+
+        <section class="challenge-panel">
+          <div class="copilot-voice">
+            <div class="copilot-mark">CK</div>
+            <div>
+              <span>COPILOT PUSHBACK</span>
+              <h2 id="challengeHeadline">You may be treating correlation as causation.</h2>
+              <p id="challengeCopy"></p>
+            </div>
+          </div>
+
+          <div class="challenge-columns">
+            <section>
+              <span class="panel-label">HIDDEN ASSUMPTIONS</span>
+              <div class="insight-list" id="assumptionList"></div>
+            </section>
+            <section>
+              <span class="panel-label">ALTERNATIVE HYPOTHESES</span>
+              <div class="insight-list alt" id="hypothesisList"></div>
+            </section>
+          </div>
+
+          <div class="evidence-gate" id="evidenceGate">
+            <div class="gate-head">
+              <span class="panel-label">YOUR TURN</span>
+              <h3>What evidence would make you comfortable betting on this assumption?</h3>
+              <p>Don’t explain the solution yet. Tell the Copilot what you actually know.</p>
+            </div>
+            <textarea id="evidenceInput" maxlength="360" placeholder="Example: Funnel data shows a 19% drop at verification, session recordings show repeated retries, and 7/10 interviewed users called the step confusing."></textarea>
+            <div class="evidence-actions">
+              <div class="evidence-types" role="group" aria-label="Evidence type">
+                <button data-evidence-type="analytics">Analytics</button>
+                <button data-evidence-type="research">User research</button>
+                <button data-evidence-type="experiment">Experiment</button>
+                <button data-evidence-type="anecdote">Anecdote</button>
+              </div>
+              <button class="primary-button compact" id="submitEvidence">Test the evidence <span>→</span></button>
+            </div>
+          </div>
+
+          <section class="evidence-review" id="evidenceReview" hidden>
+            <div class="review-score">
+              <span>EVIDENCE STRENGTH</span>
+              <strong id="evidenceScore">62</strong><small>/100</small>
+              <div class="score-track"><i id="scoreBar"></i></div>
+            </div>
+            <div class="review-copy">
+              <h3 id="reviewHeadline"></h3>
+              <p id="reviewCopy"></p>
+              <div class="review-tags" id="reviewTags"></div>
+            </div>
+          </section>
+
+          <section class="experiment-stage" id="experimentStage" hidden>
+            <div class="section-intro">
+              <span class="panel-label">DESIGN THE NEXT TEST</span>
+              <h3>What is the smallest thing you would do before committing roadmap capacity?</h3>
+            </div>
+            <div class="experiment-grid" id="experimentGrid"></div>
+          </section>
+
+          <section class="reframe-stage" id="reframeStage" hidden>
+            <div class="reframe-top">
+              <span class="panel-label">ASSUMPTION REFRAMED</span>
+              <h3 id="reframedStatement"></h3>
+              <p id="reframeRationale"></p>
+            </div>
+            <div class="reframe-grid">
+              <div><span>Original belief</span><p id="originalBelief"></p></div>
+              <div><span>What changed</span><p id="whatChanged"></p></div>
+              <div><span>Next evidence</span><p id="nextEvidence"></p></div>
+            </div>
+            <div class="copilot-principle">
+              <span>PRODUCT PRINCIPLE</span>
+              <blockquote>“The job of AI here isn’t to give the PM an answer. It’s to make weak reasoning harder to hide.”</blockquote>
+              <small>— Chirag’s product thesis for this experiment</small>
+            </div>
+            <div class="final-actions">
+              <button class="primary-button" id="tryAnother">↻ Challenge another assumption</button>
+              <a class="secondary-button" href="index.html#think">Back to How I Think</a>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>PRODUCTFLIX</span>
+    <small>Interactive product thinking by Chirag Kochar</small>
+  </footer>
+
+  <script src="copilot.js"></script>
+</body>
+</html>

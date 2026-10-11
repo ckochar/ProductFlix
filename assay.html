@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b0e" />
+  <title>Assay — Productflix</title>
+  <meta name="description" content="Assay — a hands-on AI product build by Chirag Kochar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="episode.css" />
+  <style>
+    .hero-visual.assay{background:linear-gradient(145deg,#0f151d,#11161d)}
+    .hero-visual.assay:before{background:radial-gradient(circle at 68% 34%,rgba(106,168,255,.22),transparent 31%)}
+    .assay-ui{position:absolute;inset:9%;border:1px solid rgba(255,255,255,.10);border-radius:24px;background:rgba(9,13,18,.92);box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden}
+    .assay-top{height:58px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#dbe1e6;font-size:12px}
+    .assay-top b{letter-spacing:.12em}.assay-top span{color:#7fd2bf}
+    .assay-body{display:grid;grid-template-columns:1.1fr .9fr;height:calc(100% - 58px)}
+    .doc-pane{padding:22px;border-right:1px solid rgba(255,255,255,.08);position:relative}
+    .doc-sheet{height:100%;border-radius:12px;background:#ece9e1;color:#1b1c1d;padding:24px;position:relative;overflow:hidden}
+    .doc-sheet:before{content:"PROMISSORY NOTE";font-size:12px;font-weight:800;letter-spacing:.12em;color:#5c6268}
+    .doc-line{height:7px;background:#c4c1b9;border-radius:6px;margin:13px 0}.doc-line:nth-child(2n){width:76%}.doc-line:nth-child(3n){width:58%}
+    .hl{position:absolute;border:2px solid #e9b85e;border-radius:8px;background:rgba(233,184,94,.12)}.hl.a{left:16%;right:22%;top:42%;height:54px}.hl.b{left:50%;right:8%;bottom:18%;height:42px;border-color:#6aa8ff;background:rgba(106,168,255,.10)}
+    .review-pane{padding:22px}.review-pane h4{margin:0 0 14px;font-size:14px}.check{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:12px;color:#b9c1c8}.check b{color:#fff}.ok{color:#72d0ad}.warn{color:#e9b85e}.review-actions{display:flex;gap:10px;margin-top:20px}.review-actions button{border:0;border-radius:10px;padding:11px 14px;font:inherit;font-weight:800}.review-actions .primary{background:#e9b85e;color:#17130c}.review-actions .ghost{background:#17202a;color:#dce2e7;border:1px solid rgba(255,255,255,.08)}
+    .builder-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}.builder-strip .metric strong{font-size:28px}
+    .decision-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}.decision-card{border:1px solid var(--line);border-radius:20px;padding:24px;background:linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.012))}.decision-card span{font-size:11px;letter-spacing:.13em;font-weight:800;color:var(--blue)}.decision-card h3{font-size:24px;margin:12px 0 8px}.decision-card p{margin:0;color:#aeb6bd;line-height:1.6}
+    .build-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:34px}.build-flow div{padding:18px;border:1px solid var(--line);border-radius:16px;background:#11161b}.build-flow span{display:block;color:var(--gold);font-size:10px;letter-spacing:.13em;margin-bottom:9px}.build-flow b{font-size:15px}.build-flow small{display:block;color:#8f99a2;margin-top:7px;line-height:1.4}
+    .truth{margin-top:34px;padding:24px 26px;border-radius:20px;border:1px solid rgba(233,184,94,.25);background:rgba(233,184,94,.05)}.truth strong{display:block;font-size:13px;color:var(--gold);letter-spacing:.12em;margin-bottom:9px}.truth p{margin:0;color:#c1c8ce;line-height:1.7}
+    @media(max-width:900px){.assay-body{grid-template-columns:1fr}.doc-pane{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}.hero-visual{height:600px}.builder-strip,.decision-list,.build-flow{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.builder-strip,.decision-list,.build-flow{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="episode-nav">
+    <a class="episode-brand" href="index.html">PRODUCT<span>FLIX</span></a>
+    <a class="back" href="index.html">← Back to browse</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">BUILD ARTIFACT · PERSONAL 0→1</div>
+        <h1>I wanted to see how far I could take the idea <em>myself.</em></h1>
+        <p>Assay is my hands-on exploration of AI-assisted post-execution document QC — a portfolio build focused on product experience, governance, deployment and iteration rather than another enterprise case study.</p>
+        <div class="meta"><span>Personal Build</span><span>AI + OCR + Rules</span><span>Human-in-the-loop</span><span>Live prototype</span></div>
+      </div>
+      <div class="hero-visual assay" aria-label="Conceptual Assay document review interface">
+        <div class="assay-ui">
+          <div class="assay-top"><b>ASSAY · DOCUMENT QC</b><span>Ready for review</span></div>
+          <div class="assay-body">
+            <div class="doc-pane">
+              <div class="doc-sheet">
+                <div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div><div class="hl a"></div><div class="hl b"></div>
+              </div>
+            </div>
+            <div class="review-pane">
+              <h4>Package checks</h4>
+              <div class="check"><b>Borrower signature</b><span class="ok">PASS</span></div>
+              <div class="check"><b>Notary execution</b><span class="ok">PASS</span></div>
+              <div class="check"><b>Date consistency</b><span class="warn">REVIEW</span></div>
+              <div class="check"><b>Required document</b><span class="ok">PASS</span></div>
+              <div class="review-actions"><button class="primary">Confirm review</button><button class="ghost">Open evidence</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="kicker">WHY THIS EXISTS</div>
+        <h2>Same problem space. Different proof.</h2>
+        <p class="lead">Doc Verify demonstrates enterprise product leadership. Assay demonstrates builder depth: taking a regulated workflow idea from concept to a functioning product experience, then iterating on the details that determine whether people would actually trust and use it.</p>
+        <div class="truth"><strong>PORTFOLIO DISCLOSURE</strong><p>Assay is an independent personal project inspired by a broader problem space I have worked in professionally. It is not a production copy, does not expose proprietary systems or workflows, and uses portfolio-safe/synthetic examples.</p></div>
+        <div class="builder-strip metric-grid">
+          <div class="metric"><strong>0→1</strong><span>concept to live prototype</span></div>
+          <div class="metric"><strong>1–2 min</strong><span>target review experience</span></div>
+          <div class="metric"><strong>HITL</strong><span>human review by design</span></div>
+          <div class="metric"><strong>Live</strong><span>deployed portfolio build</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="kicker">WHAT I ACTUALLY BUILT</div>
+        <h2>Not a slide deck. A product surface.</h2>
+        <p class="lead">The goal was to make the difficult parts tangible: upload and analysis flow, rule outcomes, evidence, governance states, human confirmation, and a UI that makes failure impossible to miss.</p>
+        <div class="build-flow">
+          <div><span>01</span><b>Upload</b><small>Sample mortgage package enters the experience.</small></div>
+          <div><span>02</span><b>Analyze</b><small>Document extraction and validation are triggered.</small></div>
+          <div><span>03</span><b>Explain</b><small>Pass, fail and review states expose evidence.</small></div>
+          <div><span>04</span><b>Human decide</b><small>Critical ambiguity remains explicitly reviewable.</small></div>
+          <div><span>05</span><b>Complete</b><small>Funding/readiness state only updates after confirmation.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="kicker">PRODUCT DECISIONS</div>
+        <h2>The interesting work was in the edges.</h2>
+        <div class="decision-list">
+          <div class="decision-card"><span>DECISION 01</span><h3>Fail should block progression.</h3><p>A critical failed rule cannot be visually equivalent to “needs review.” The workflow has to encode governance, not merely display model output.</p></div>
+          <div class="decision-card"><span>DECISION 02</span><h3>Evidence before trust.</h3><p>Users need to see why a rule fired — not just a confidence score. The design therefore makes source evidence a first-class interaction.</p></div>
+          <div class="decision-card"><span>DECISION 03</span><h3>Human confirmation is a feature.</h3><p>For regulated workflows, removing every click is not always the goal. A deliberate confirmation step creates accountability and a cleaner audit trail.</p></div>
+          <div class="decision-card"><span>DECISION 04</span><h3>Demo mode and live mode are different products.</h3><p>The portfolio experience separates controlled sample data from actual analysis so visitors can explore safely without confusing synthetic output for production truth.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="kicker">WHAT I LEARNED</div>
+        <h2>Building changes the questions a PM asks.</h2>
+        <div class="three">
+          <div class="card"><span>01 · PRODUCT</span><h3>States matter more than screens.</h3><p>The hardest UX questions were not visual. They were about when a package can progress, when an exception blocks it, and how confidence maps to action.</p></div>
+          <div class="card"><span>02 · AI</span><h3>Accuracy is only one metric.</h3><p>Latency, evidence quality, false-positive behavior, review burden and failure transparency all shape whether the AI experience is useful.</p></div>
+          <div class="card"><span>03 · BUILDING</span><h3>Prototype fidelity reveals strategy gaps.</h3><p>Once the flow is interactive, vague product decisions become impossible to hide. Every ambiguous state eventually needs a concrete rule.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="kicker">NEXT ITERATION</div>
+        <h2>Where I would take Assay next.</h2>
+        <div class="decision">
+          <div class="quote">“The next frontier is not better OCR. It is package-level intelligence, evidence quality and measurable trust.”</div>
+          <ul>
+            <li><b>PDF evidence viewer</b> — anchor each rule outcome directly to source evidence.</li>
+            <li><b>Rule profiles</b> — configurable validation by product / package type.</li>
+            <li><b>Cross-document intelligence</b> — identify contradictions between otherwise-valid documents.</li>
+            <li><b>Evaluation harness</b> — track precision, recall, false positives and review burden.</li>
+            <li><b>Governance controls</b> — explicit override, audit and approval logic.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="kicker">THE POINT</div>
+      <h2>Assay is not a second Doc Verify story.</h2>
+      <p>It is proof that I can move from product strategy into hands-on prototyping, interaction design, deployment and iteration.</p>
+      <a class="button" href="index.html">Back to Productflix</a>
+    </section>
+  </main>
+</body>
+</html>

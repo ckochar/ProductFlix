@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>If I Were PM for ChatGPT Memory — Productflix</title>
+  <meta name="description" content="A short, opinionated product strategy case by Chirag Kochar: how AI memory could feel more useful, legible, and trustworthy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pmfor.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><strong>PRODUCTFLIX</strong><span>by Chirag Kochar</span></a>
+    <div class="episode-label">IF I WERE PM FOR… <b>EP. 01</b></div>
+    <a class="exit-link" href="index.html"><span>←</span> Back to Productflix</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">PRODUCT STRATEGY SERIES · 5 MIN READ</div>
+        <h1>What should<br><em>AI remember?</em></h1>
+        <p class="lede">If I were PM for ChatGPT Memory, I wouldn’t start with “how do we remember more?” I’d start with a harder question: <strong>how do we make memory useful without making it mysterious?</strong></p>
+        <div class="hero-actions">
+          <a class="primary" href="#bet">See the product bet ↓</a>
+          <button class="ghost" id="jumpChallenge">Try the trust challenge</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="memory-orbit orbit-1"></div>
+        <div class="memory-orbit orbit-2"></div>
+        <div class="memory-core">MEMORY</div>
+        <div class="memory-chip chip-a"><span>Preference</span><b>Vegetarian</b><small>used often</small></div>
+        <div class="memory-chip chip-b"><span>Project</span><b>Portfolio</b><small>recent</small></div>
+        <div class="memory-chip chip-c"><span>Style</span><b>Concise</b><small>stable</small></div>
+        <div class="memory-chip chip-d"><span>Context</span><b>Travel</b><small>situational</small></div>
+      </div>
+    </section>
+
+    <section class="strategy-strip">
+      <div><span>01</span><b>Problem</b><small>Memory can be useful and still feel opaque.</small></div>
+      <div><span>02</span><b>Insight</b><small>Trust improves when context is legible and controllable.</small></div>
+      <div><span>03</span><b>Bet</b><small>Make every important memory use explainable in the moment.</small></div>
+      <div><span>04</span><b>Metric</b><small>Higher useful personalization without higher discomfort.</small></div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="section-num">01</div>
+      <div class="section-copy">
+        <span class="section-kicker">THE PROBLEM</span>
+        <h2>“It remembered” is magical.<br>“Why did it remember that?” is not.</h2>
+        <p>Persistent context is valuable because it removes repetition. But the same capability creates a trust gap when people cannot easily tell <strong>what influenced an answer, why it mattered, or how to change it.</strong></p>
+      </div>
+      <div class="tension-card">
+        <div><span>More memory</span><i></i><strong>More continuity</strong></div>
+        <div><span>Less visibility</span><i></i><strong>Less trust</strong></div>
+        <p>The product challenge isn’t maximizing memory. It’s maximizing <em>useful continuity per unit of surprise.</em></p>
+      </div>
+    </section>
+
+    <section class="section insight-section">
+      <div class="section-num">02</div>
+      <div class="section-copy">
+        <span class="section-kicker">THE INSIGHT</span>
+        <h2>Memory needs a UX layer,<br>not just a settings page.</h2>
+        <p>People usually notice memory <em>inside a response</em>, not while browsing settings. So the moment to build trust is the moment memory affects the experience.</p>
+      </div>
+      <div class="insight-grid">
+        <article><span>01</span><h3>Show provenance</h3><p>Make it obvious which remembered context influenced the answer.</p></article>
+        <article><span>02</span><h3>Match control to context</h3><p>Let people correct, mute, or narrow context without leaving the flow.</p></article>
+        <article><span>03</span><h3>Separate stable from situational</h3><p>Not every useful detail deserves the same persistence.</p></article>
+      </div>
+    </section>
+
+    <section class="section challenge-section" id="challenge">
+      <div class="section-num">03</div>
+      <div class="section-copy">
+        <span class="section-kicker">INTERACTIVE TRUST CHALLENGE</span>
+        <h2>Which moment breaks trust fastest?</h2>
+        <p>Pick the user reaction you think is most damaging. The concept adapts to that failure mode.</p>
+      </div>
+      <div class="challenge-grid" id="challengeGrid">
+        <button data-mode="wrong"><span>“That’s wrong.”</span><small>The remembered context is stale or inaccurate.</small></button>
+        <button data-mode="creepy"><span>“Why do you know that?”</span><small>The context is accurate but surprising.</small></button>
+        <button data-mode="overreach"><span>“That wasn’t relevant.”</span><small>The context leaks into a task where it doesn’t belong.</small></button>
+      </div>
+      <div class="challenge-result" id="challengeResult" hidden>
+        <div class="result-kicker">DESIGN RESPONSE</div>
+        <h3 id="resultTitle"></h3>
+        <p id="resultCopy"></p>
+        <div class="result-actions" id="resultActions"></div>
+      </div>
+    </section>
+
+    <section class="section bet-section" id="bet">
+      <div class="section-num">04</div>
+      <div class="section-copy">
+        <span class="section-kicker">THE PRODUCT BET</span>
+        <h2>Memory Receipts</h2>
+        <p>A lightweight, contextual layer that appears only when remembered information meaningfully shapes a response.</p>
+      </div>
+
+      <div class="concept-shell">
+        <div class="mock-chat">
+          <div class="user-bubble">Plan a quick dinner for tonight.</div>
+          <div class="assistant-bubble">
+            <p>Here are three quick vegetarian options that stay under 30 minutes…</p>
+            <button class="receipt-pill" id="receiptToggle">✦ Personalized using 2 memories</button>
+            <div class="receipt-panel" id="receiptPanel" hidden>
+              <div class="receipt-head"><strong>Why this was personalized</strong><span>Memory Receipt</span></div>
+              <div class="receipt-item"><div><b>Diet preference</b><small>Vegetarian</small></div><button>Correct</button><button>Don’t use here</button></div>
+              <div class="receipt-item"><div><b>Time preference</b><small>Quick weekday meals</small></div><button>Correct</button><button>Use less</button></div>
+              <div class="receipt-footer"><button>Open memory controls</button><button>Looks right ✓</button></div>
+            </div>
+          </div>
+        </div>
+        <aside class="concept-notes">
+          <div><span>01</span><strong>Progressive disclosure</strong><p>Invisible by default. Available exactly when curiosity or discomfort appears.</p></div>
+          <div><span>02</span><strong>Local correction</strong><p>Fix the context without forcing a settings detour.</p></div>
+          <div><span>03</span><strong>Scoped control</strong><p>“Don’t use here” is different from “forget this forever.”</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section tradeoff-section">
+      <div class="section-num">05</div>
+      <div class="section-copy">
+        <span class="section-kicker">THE TRADE-OFF</span>
+        <h2>Transparency can become clutter.</h2>
+        <p>If every response exposes every context source, the product becomes noisy and memory starts feeling like surveillance UI. The feature has to be selective.</p>
+      </div>
+      <div class="tradeoff-matrix">
+        <div class="axis-label top">HIGH USER SURPRISE</div>
+        <div class="axis-label side">HIGH MEMORY IMPACT</div>
+        <div class="quadrant q1"><b>Show receipt</b><small>Important + surprising</small></div>
+        <div class="quadrant q2"><b>Subtle indicator</b><small>Important + expected</small></div>
+        <div class="quadrant q3"><b>Keep invisible</b><small>Low impact + expected</small></div>
+        <div class="quadrant q4"><b>Prefer not to use</b><small>Low value + surprising</small></div>
+      </div>
+    </section>
+
+    <section class="section metric-section">
+      <div class="section-num">06</div>
+      <div class="section-copy">
+        <span class="section-kicker">SUCCESS METRIC</span>
+        <h2>Don’t optimize for memories stored.</h2>
+        <p>I’d measure whether memory is making the product more useful <em>without increasing user discomfort or correction burden.</em></p>
+      </div>
+      <div class="metric-cards">
+        <article><span>PRIMARY</span><strong>↑ Task continuation</strong><p>Fewer repeated-context turns before the user reaches a useful result.</p></article>
+        <article><span>GUARDRAIL</span><strong>↓ Surprise corrections</strong><p>Fewer “why do you know that?” and irrelevant-context corrections.</p></article>
+        <article><span>QUALITY</span><strong>↑ Receipt acceptance</strong><p>When shown, users confirm the context was both accurate and relevant.</p></article>
+      </div>
+    </section>
+
+    <section class="finale">
+      <span>THE PM TAKE</span>
+      <blockquote>“The best memory system isn’t the one that remembers the most. It’s the one that knows when memory deserves to be visible.”</blockquote>
+      <div class="final-actions">
+        <a class="primary" href="index.html#think">← Back to How I Think</a>
+        <a class="ghost-link" href="decision-simulator.html">Play Decision Simulator →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>PRODUCTFLIX</span><small>Concept exercise · Not affiliated with OpenAI</small></footer>
+  <script src="pmfor.js"></script>
+</body>
+</html>
