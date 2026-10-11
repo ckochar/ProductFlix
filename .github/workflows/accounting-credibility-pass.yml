@@ -1,0 +1,69 @@
+name: Accounting credibility pass
+
+on:
+  push:
+    paths:
+      - '.github/workflows/accounting-credibility-pass.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message != 'Polish accounting case study credibility'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply credibility edits
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def rep(path, old, new, required=True):
+              p = Path(path)
+              s = p.read_text()
+              if old not in s:
+                  if required:
+                      raise SystemExit(f'Missing expected text in {path}: {old[:120]!r}')
+                  return
+              p.write_text(s.replace(old, new))
+
+          # Accounting case: retain established scale/outcome metrics, remove unnecessarily specific operating footprint.
+          rep('accounting-payments.html', '<title>$180M Moves Here — Productflix</title>', '<title>Financial Operations at Scale — Productflix</title>')
+          rep('accounting-payments.html', '<span>Scope <strong>8 LOBs</strong></span>', '<span>Scope <strong>Enterprise Workflows</strong></span>')
+          rep('accounting-payments.html', '<div class="ledger-balance"><small>ANNUAL FLOW</small><strong>$180M+</strong><span>Across 8 lines of business</span></div>', '<div class="ledger-balance"><small>ANNUAL FLOW</small><strong>$180M+</strong><span>Enterprise financial operations</span></div>')
+          rep('accounting-payments.html', '<div class="case-kpis" aria-label="Accounting and payments headline impact">\n        <div><strong>$180M+</strong><span>annual disbursements</span></div>\n        <div><strong>150+</strong><span>service providers</span></div>\n        <div><strong>8</strong><span>lines of business</span></div>\n        <div><strong>−30%</strong><span>reconciliation effort</span></div>\n      </div>', '<div class="case-kpis" aria-label="Accounting and payments headline impact">\n        <div><strong>$180M+</strong><span>annual transaction scale</span></div>\n        <div><strong>−30%</strong><span>reconciliation effort · realized</span></div>\n        <div><strong>−23%</strong><span>payment cycle · realized</span></div>\n        <div><strong>−8%</strong><span>payment failures · realized</span></div>\n      </div>')
+          rep('accounting-payments.html', '<div class="pay-screen-top"><span>PAYMENTS CONTROL CENTER</span><div><b>8 LOBs</b><b>150+ providers</b><b>$180M+ flow</b></div></div>', '<div class="pay-screen-top"><span>PAYMENTS CONTROL CENTER</span><div><b>Multi-workflow</b><b>Provider network</b><b>$180M+ annual scale</b></div></div>')
+          rep('accounting-payments.html', '<p class="prototype-note">Conceptualized portfolio UI — not a production screenshot.</p>', '<p class="prototype-note">Conceptual portfolio UI — not a production screenshot. Transaction IDs, sample amounts and interface data are illustrative.</p>')
+          rep('accounting-payments.html', '<h3>Why standardize across lines of business?</h3><p>Shared primitives reduce duplicated logic while still allowing LOB-specific policy at the edges.</p>', '<h3>Why standardize across workflows?</h3><p>Shared financial primitives reduce duplicated logic while still allowing policy variation at the workflow edges.</p>')
+          rep('accounting-payments.html', '<div class="case-section-label">06 · IMPACT</div>', '<div class="case-section-label">06 · REALIZED IMPACT</div>')
+          rep('accounting-payments.html', '<article><strong>+$480K</strong><span>revenue leakage addressed</span></article>', '<article><strong>$480K</strong><span>revenue leakage addressed · realized</span></article>')
+          rep('accounting-payments.html', '<article><strong>−30%</strong><span>reconciliation effort</span></article>', '<article><strong>−30%</strong><span>reconciliation effort · realized</span></article>')
+          rep('accounting-payments.html', '<article><strong>−23%</strong><span>vendor payment cycle</span></article>', '<article><strong>−23%</strong><span>vendor payment cycle · realized</span></article>')
+          rep('accounting-payments.html', '<article><strong>−8%</strong><span>payment failures</span></article>', '<article><strong>−8%</strong><span>payment failures · realized</span></article>')
+          rep('accounting-payments.html', '<p class="portfolio-safe-note">Metrics are presented at a portfolio-safe aggregate level and exclude confidential client, provider and implementation details.</p>', '<p class="portfolio-safe-note">Public portfolio note: realized outcomes are shown only at aggregate level; confidential client, provider, system and implementation details are omitted.</p>')
+
+          # Homepage quick view: mirror the same public-safe framing.
+          rep('app.js', 'summary: "Accounting, reconciliation and vendor-payment workflows supporting high-value disbursements across multiple lines of business.",', 'summary: "Accounting, reconciliation and vendor-payment workflows supporting high-value enterprise financial operations.",')
+          rep('app.js', 'metrics: [["$180M+", "annual disbursements"], ["−30%", "reconciliation effort"], ["−23%", "payment cycle"]],', 'metrics: [["$180M+", "annual transaction scale"], ["−30%", "reconciliation effort · realized"], ["−23%", "payment cycle · realized"]],')
+          rep('app.js', 'role: "Platform product leadership spanning accounting flows, reconciliation, payment operations, provider workflows, controls and measurable operational outcomes.",', 'role: "Platform product leadership spanning accounting flows, reconciliation, payment operations, controls and measurable operational outcomes.",')
+
+          # Guardrail against reintroducing the two operating-footprint counts on this public case.
+          text = Path('accounting-payments.html').read_text()
+          for risky in ['150+ service providers', '150+ providers', '8 LOBs', 'Across 8 lines of business', 'LOB-specific policy']:
+              if risky in text:
+                  raise SystemExit(f'Accounting public-safety guardrail failed: {risky}')
+          PY
+      - name: Commit credibility pass
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add accounting-payments.html app.js
+          git diff --cached --quiet && exit 0
+          git commit -m 'Polish accounting case study credibility'
+          git push
