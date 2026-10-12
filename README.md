@@ -1,9 +1,9 @@
-# Productflix V1
+# ProductFlix V1
 
 Interactive personal portfolio prototype for Chirag Kochar.
 
 ## What's included
-- Cinematic Productflix homepage
+- Cinematic ProductFlix homepage
 - Visitor-mode personalization that reorders shelves
 - Search overlay
 - Quick-view project modals
@@ -22,7 +22,7 @@ python -m http.server 8000
 Then open `http://localhost:8000`.
 
 ## Current routing
-- `index.html` — Productflix homepage
+- `index.html` — ProductFlix homepage
 - `doc-verify.html` — Doc Verify full case study
 
 The other projects currently use quick-view modals and can be promoted into full case studies using the DOC page as the template.
@@ -43,7 +43,7 @@ Open `decision-simulator.html` for the playable 4-round product strategy simulat
 
 
 ## Product Teardowns
-- `netflix-teardown.html` — Episode 01: **Why We Keep Scrolling — and Why Productflix Works This Way**. Interactive teardown of rows, ranking, progressive disclosure, personalization, feedback loops, and the specific Netflix patterns Productflix borrows, adapts, or rejects.
+- `netflix-teardown.html` — Episode 01: **Why We Keep Scrolling — and Why ProductFlix Works This Way**. Interactive teardown of rows, ranking, progressive disclosure, personalization, feedback loops, and the specific Netflix patterns ProductFlix borrows, adapts, or rejects.
 
 ## New in this release
 - Added a full Accounting & Vendor Payments case study: `accounting-payments.html`
