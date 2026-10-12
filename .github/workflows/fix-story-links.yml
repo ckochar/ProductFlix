@@ -1,0 +1,36 @@
+name: Fix Featured Story Links
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/fix_story_links.py'
+      - '.github/workflows/fix-story-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply story routing and case studies
+        run: python .github/scripts/fix_story_links.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes required"
+            exit 0
+          fi
+          git commit -m "Fix featured story links and add case studies"
+          git push origin main
