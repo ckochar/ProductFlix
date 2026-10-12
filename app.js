@@ -357,3 +357,22 @@ const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle("is-active",a.getAttribute("href")===`#${entry.target.id}`));}})
 },{rootMargin:"-25% 0px -65% 0px",threshold:.01});
 observed.forEach(s=>observer.observe(s));
+
+
+/* FEATURED_STORY_ROUTING_V1 */
+// Ensure Featured Work quick-view CTAs always open a real case-study page.
+document.addEventListener('click', function (event) {
+  const button = event.target && event.target.closest ? event.target.closest('#modalPrimary') : null;
+  if (!button) return;
+  const title = document.getElementById('modalTitle')?.textContent?.trim();
+  const storyRoutes = {
+    'Payments & Checkout': 'payments-checkout.html',
+    'Client Platform': 'client-platform.html',
+    'Title Workflow Automation': 'title-automation.html'
+  };
+  const target = storyRoutes[title];
+  if (!target) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  window.location.href = target;
+}, true);
