@@ -47,7 +47,10 @@ document.querySelectorAll('.principle-tab').forEach(btn => {
     document.querySelectorAll('.principle-tab').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     const p = principles[btn.dataset.principle];
-    detail.animate([{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'none'}],{duration:260,easing:'ease-out'});
+    if (!p || !detail) return;
+    if (detail.animate) {
+      detail.animate([{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'none'}],{duration:260,easing:'ease-out'});
+    }
     detail.innerHTML = `
       <div class="detail-kicker">${p.kicker}</div>
       <h3>${p.title}</h3>
@@ -60,7 +63,21 @@ document.querySelectorAll('.principle-tab').forEach(btn => {
   });
 });
 
-document.getElementById('jumpProductflix').addEventListener('click',()=>document.getElementById('adaptation').scrollIntoView({behavior:'smooth'}));
+const jumpProductFlix = document.getElementById('jumpProductFlix');
+if (jumpProductFlix) {
+  jumpProductFlix.addEventListener('click',()=>document.getElementById('adaptation')?.scrollIntoView({behavior:'smooth'}));
+}
 
-const observer = new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// Keep content visible even if IntersectionObserver is unavailable or a browser delays it.
+const revealEls = [...document.querySelectorAll('.reveal')];
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  }),{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+  revealEls.forEach(el=>observer.observe(el));
+} else {
+  revealEls.forEach(el=>el.classList.add('visible'));
+}
