@@ -25,7 +25,7 @@
 ## Claims currently treated as portfolio-safe
 - Title Automation: **$1.5M projected annual savings**, 8 LOBs, search + keying automation.
 - Doc Verify: **$184K annual gross impact**, 4.4 FTE capacity, high-volume document QC.
-- Accounting & Payments: **$180M+ annual disbursements**, −30% reconciliation effort, −23% vendor payment cycle, $480K leakage addressed.
+- Accounting & Payments: **$500M+ annual disbursements**, −30% reconciliation effort, −23% vendor payment cycle, $480K leakage addressed.
 - Digital Manufacturing: **50+ plants**.
 - Publicis Reservation System: travel/hospitality booking, checkout, payments and reliability.
 
